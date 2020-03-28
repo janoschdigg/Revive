@@ -1,0 +1,21 @@
+{
+  "short_name": "Revive",
+  "name": "Revive",
+  "icons": [
+    {
+      "src": "images/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#78b378",
+  "display": "standalone",
+  "scope": "/register/",
+  "theme_color": "#78b378"
+}
