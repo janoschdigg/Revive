@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+<body>
+  
+<ons-page>
+    <ons-toolbar>
+        <div class="center">Revive</div>
+        </ons-toolbar>
+    <ons-tabbar id="tabbar">
+        <ons-tab page="home.html" icon="ion-md-home" label="Revive"></ons-tab>
+        <ons-tab page="profile.html" icon="ion-md-person" label="My Profile"></ons-tab>
+    </ons-tabbar>
+</ons-page>
+
+<template id="home.html">
+    <ons-page id="Tab1">
+      <p style="text-align: center;">
+        Welcome to Revive
+      </p>
+    </ons-page>
+  </template>
+  
+  <template id="profile.html">
+    <ons-page id="Tab2">
+      <p style="text-align: center;">
+        Your Profile
+      </p>
+    </ons-page>
+  </template>
+
+</body>
+</html>
+<script>
+    document.addEventListener('prechange', function(event) {
+  document.querySelector('ons-toolbar .center')
+    .innerHTML = event.tabItem.getAttribute('label');
+});
+</script>
