@@ -13,8 +13,8 @@
     
         $this->dbhost = 'localhost';
         $this->dbname = 'revive'; //Ersetzten durch Datenbank name
-        $this->dbuser = 'root';
-        $this->dbpass = '';
+        $this->dbuser = 'revive_user';
+        $this->dbpass = 'kRdk^959';
         
         try 
         {
