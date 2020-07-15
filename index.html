@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
   
@@ -42,38 +43,40 @@
 <!-- Home Tab -->
 <template id="home.html">
     <ons-page id="Tab1">
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
-      <ons-card>
-        <div class="title">Angebot Nummer 1</div>
-        <div class="content">Das ist ein Test Angebot</div>
-      </ons-card>
+
+      <script>
+        $( document ).ready(function( event ) {
+        // Send the data using post
+        // var posting = $.post( "/phpscripts/getactivities.php");
+
+        $.post( "phpscripts/getactivities.php", function( data ) {
+          
+          var container = document.getElementById("acitivities");
+
+          var obj = JSON.parse(data);
+
+          
+          obj.forEach(element => {
+            container.innerHTML +=  `
+            <ons-card class='act'>
+              <div class='calendarDate'>	
+                <em>Samstag</em>
+                <strong>Dezember</strong>
+                <span>21</span>
+              </div>
+              <div class='actright title'>`+ element.title + `</div>
+              <div class='actright content'>`+ element.body + `</div>
+            </ons-card>
+            `;
+          });
+          
+        });
+        });
+      </script>
+      <div id="acitivities">
+
+      </div>
+      
     </ons-page>
   </template>
   <!-- Profile Tab -->
