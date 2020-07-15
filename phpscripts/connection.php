@@ -11,7 +11,8 @@
     public function __construct()
     {
     
-        $this->dbhost = 'localhost';
+        //Produktiv
+        $this->dbhost = 'localhost:3306';
         $this->dbname = 'revive'; //Ersetzten durch Datenbank name
         $this->dbuser = 'revive_user';
         $this->dbpass = 'kRdk^959';
