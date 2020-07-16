@@ -29,9 +29,10 @@ body{
 
 .churchlogo{
     max-width: 150px;
+    max-height: 50px;
 }
 
- .title{
+.act .title{
     margin-top: -80px !important;
 }
 
@@ -48,7 +49,7 @@ body{
 }
 
 .church{
-    min-height: 6em;
+    min-height: 5.5em;
 }
 
 #loading{

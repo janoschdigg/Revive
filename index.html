@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
   <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" href="images/icon.png">
@@ -52,36 +54,6 @@
 <!-- Home Tab -->
 <template id="home.html">
     <ons-page id="Tab1">
-     
-      <script>
-        $( document ).ready(function( event ) {
-        // Send the data using post
-        // var posting = $.post( "/phpscripts/getactivities.php");
-
-        $.post( "phpscripts/getactivities.php", function( data ) {
-          
-          var container = document.getElementById("acitivities");
-
-          var obj = JSON.parse(data);
-
-          
-          obj.forEach(element => {
-            container.innerHTML +=  `
-            <ons-card id='activity `+ element.id + `' class='act'>
-              <div class='calendarDate'>	
-                <em>Samstag</em>
-                <strong>Dezember</strong>
-                <span>21</span>
-              </div>
-              <div class='actright title'>`+ element.title + `</div>
-              <div class='actright content'>`+ element.body + `</div>
-            </ons-card>
-            `;
-          });
-          
-        });
-        });
-      </script>
       <div id="acitivities">
 
       </div>
@@ -94,33 +66,11 @@
       <ons-card>
         <div class="title titlenormal">Mitwirkende Gemeinden</div>
       </ons-card>
+      <div id="churches">
+        
+      </div>
 
-      <ons-card class="church">
-        <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">FEG Sulgen</div>
-        <div class="content churchright">Manuela Schlegel</div>
-      </ons-card>
-      <ons-card class="church">
-        <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">FEG Sulgen</div>
-        <div class="content churchright">Manuela Schlegel</div>
-      </ons-card>
-      <ons-card class="church">
-        <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">FEG Sulgen</div>
-        <div class="content churchright">Manuela Schlegel</div>
-      </ons-card>
-      <ons-card class="church">
-        <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">FEG Sulgen</div>
-        <div class="content churchright">Manuela Schlegel</div>
-      </ons-card>
-      <ons-card class="church">
-        <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">FEG Sulgen</div>
-        <div class="content churchright">Manuela Schlegel</div>
-      </ons-card>
-
+     
     </ons-page>
   </template>
   <!-- Profile Tab -->
@@ -128,8 +78,12 @@
     <ons-page id="Tab3">
       <ons-card class="church">
         <img src="images/churches/sulgen.jpg" class="churchlogo">
-        <div class="title churchright">Manuela Schlegel</div>
+        <div class="title churchright">Remy Hangartner</div>
         <div class="content churchright">Verantwortlicher FEG Sulgen</div>
+
+        <div class="right">
+          <ons-icon style="font-size: 24px; float: right; margin-right: 10px; margin-top: -40px;" icon="md-edit"></ons-icon>
+        </div>
       </ons-card>
       <ons-list>
         <ons-list-header>Meine Angebote</ons-list-header>
