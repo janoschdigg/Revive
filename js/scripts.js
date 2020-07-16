@@ -2,6 +2,6 @@ $( document ).ready(function( event ) {
     $('#loading').show();
    setTimeout(function() { 
        $('#loading').fadeOut(); 
-   }, 100);
+   }, 4000);
 });
 
