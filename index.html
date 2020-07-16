@@ -35,14 +35,16 @@
   <img src="images/bird.png">
   <div class="loader center"></div>
 </div>
-  
+
+
 <ons-page>
     <ons-toolbar>
         <div class="center">Revive</div>
         </ons-toolbar>
     <ons-tabbar id="tabbar">
-        <ons-tab page="home.html" icon="ion-md-home" label="Revive"></ons-tab>
-        <ons-tab page="profile.html" icon="ion-md-person" label="My Profile"></ons-tab>
+        <ons-tab page="home.html" icon="ion-md-home" label="Angebote"></ons-tab>
+        <ons-tab page="churches.html" icon="ion-md-flame" label="Kirchen"></ons-tab>
+        <ons-tab page="profile.html" icon="ion-md-finger-print" label="Profil"></ons-tab>
         
     </ons-tabbar>
    
@@ -50,7 +52,7 @@
 <!-- Home Tab -->
 <template id="home.html">
     <ons-page id="Tab1">
-
+     
       <script>
         $( document ).ready(function( event ) {
         // Send the data using post
@@ -65,7 +67,7 @@
           
           obj.forEach(element => {
             container.innerHTML +=  `
-            <ons-card class='act'>
+            <ons-card id='activity `+ element.id + `' class='act'>
               <div class='calendarDate'>	
                 <em>Samstag</em>
                 <strong>Dezember</strong>
@@ -87,9 +89,79 @@
     </ons-page>
   </template>
   <!-- Profile Tab -->
-  <template id="profile.html">
+  <template id="churches.html">
     <ons-page id="Tab2">
-      
+      <ons-card>
+        <div class="title titlenormal">Mitwirkende Gemeinden</div>
+      </ons-card>
+
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">FEG Sulgen</div>
+        <div class="content churchright">Manuela Schlegel</div>
+      </ons-card>
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">FEG Sulgen</div>
+        <div class="content churchright">Manuela Schlegel</div>
+      </ons-card>
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">FEG Sulgen</div>
+        <div class="content churchright">Manuela Schlegel</div>
+      </ons-card>
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">FEG Sulgen</div>
+        <div class="content churchright">Manuela Schlegel</div>
+      </ons-card>
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">FEG Sulgen</div>
+        <div class="content churchright">Manuela Schlegel</div>
+      </ons-card>
+
+    </ons-page>
+  </template>
+  <!-- Profile Tab -->
+  <template id="profile.html">
+    <ons-page id="Tab3">
+      <ons-card class="church">
+        <img src="images/churches/sulgen.jpg" class="churchlogo">
+        <div class="title churchright">Manuela Schlegel</div>
+        <div class="content churchright">Verantwortlicher FEG Sulgen</div>
+      </ons-card>
+      <ons-list>
+        <ons-list-header>Meine Angebote</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            23.10.2020
+          </div>
+          <div class="center">
+            Sport mit asylanten
+          </div>
+          <div class="right">
+            <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
+            12.06.2020
+          </div>
+          <div class="center">
+            Spiele im Altersheim
+          </div>
+          <div class="right">
+            <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
+          </div>
+        </ons-list-item>
+      </ons-list>    
+     
+    </ons-page>
+  </template>
+
+  <template id="details.html">
+    <ons-page id="details">
     </ons-page>
   </template>
 
@@ -100,4 +172,6 @@
   document.querySelector('ons-toolbar .center')
     .innerHTML = event.tabItem.getAttribute('label');
 });
+
+
 </script>

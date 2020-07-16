@@ -21,12 +21,34 @@ body{
     
 }
 
-.title{
+.churchright{
+    position: relative;
+    margin-left: 170px !important;
+    
+}
+
+.churchlogo{
+    max-width: 150px;
+}
+
+ .title{
     margin-top: -70px !important;
 }
 
-.content{
+.church .title{
+    margin-top: -50px !important;
+}
+
+.titlenormal{
+    margin: 0 !important;
+}
+
+ .content{
     margin-top: 0px !important;
+}
+
+.church{
+    min-height: 6em;
 }
 
 #loading{
@@ -121,3 +143,38 @@ div.calendarDate span {
     padding-top: 0.7em;
     color: #2f2f2f;
 }
+
+.icon-revive .path1:before {
+    content: "\e900";
+    color: #c9c9c9;
+  }
+  .icon-revive .path2:before {
+    content: "\e901";
+    color: #8f8f8f;
+    margin-left: -1.064453125em;
+  }
+  .icon-revive .path3:before {
+    content: "\e902";
+    color: #707070;
+    margin-left: -1.064453125em;
+  }
+  .icon-revive .path4:before {
+    content: "\e903";
+    color: #c9c9c9;
+    margin-left: -1.064453125em;
+  }
+  .icon-revive .path5:before {
+    content: "\e904";
+    color: #c9c9c9;
+    margin-left: -1.064453125em;
+  }
+  .icon-revive .path6:before {
+    content: "\e905";
+    color: #8f8f8f;
+    margin-left: -1.064453125em;
+  }
+  .icon-revive .path7:before {
+    content: "\e906";
+    color: #c9c9c9;
+    margin-left: -1.064453125em;
+  }
