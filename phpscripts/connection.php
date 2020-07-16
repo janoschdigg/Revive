@@ -10,12 +10,27 @@
     
     public function __construct()
     {
-    
-        //Produktiv
-        $this->dbhost = 'localhost:3306';
-        $this->dbname = 'revive'; //Ersetzten durch Datenbank name
-        $this->dbuser = 'revive_user';
-        $this->dbpass = 'kRdk^959';
+        $url = $_SERVER['HTTP_HOST'];
+        
+       
+
+        if($url == 'localhost')
+        {
+            //Integration
+            $this->dbhost = 'localhost';
+            $this->dbname = 'revive'; //Ersetzten durch Datenbank name
+            $this->dbuser = 'root';
+            $this->dbpass = '';
+        }
+        else
+        {
+            //Produktiv
+            $this->dbhost = 'localhost:3306';
+            $this->dbname = 'revive'; //Ersetzten durch Datenbank name
+            $this->dbuser = 'revive_db';
+            $this->dbpass = 'kRdk^959';
+        }
+        
         
         try 
         {
