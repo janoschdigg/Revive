@@ -33,7 +33,11 @@ body{
 }
 
 .act .title{
-    margin-top: -80px !important;
+    font-size: 16px !important;
+    margin-top: -70px !important;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .church .title{
@@ -105,13 +109,14 @@ div.calendarDate {
     /*change calendarIcon size */
     display: block;
     position: relative;
-    width: 7em;
-    height: 7em;
+    width: 6em;
+    height: 6em;
     background-color: #fff;
     border-radius: 0.7em;
     -moz-border-radius: 0.7em;
     border: 1px solid #f2f2f0;
     overflow: hidden;
+    margin-top: 5px;
 }
 div.calendarDate * {
     display: block;
@@ -128,7 +133,6 @@ div.calendarDate strong {
     color: #fff;
     background-color: var(--main-color);
     
-    box-shadow: 0 2px 0 var(--second-color);
 }
 div.calendarDate em {
     position: absolute;
@@ -139,9 +143,9 @@ div.calendarDate em {
     background-color: var(--main-color);
 }
 div.calendarDate span {
-    font-size: 2.8em;
+    font-size: 2em;
     letter-spacing: -0.05em;
-    padding-top: 0.7em;
+    padding-top: 0.9em;
     color: #2f2f2f;
 }
 

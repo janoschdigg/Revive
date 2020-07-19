@@ -14,4 +14,9 @@
     {
         echo json_encode($con->sqlexec("Select * from revive.church"));
     }
+
+    if($type == 'detail' && isset($_GET['id']))
+    {
+        echo json_encode($con->sqlexec("Select * from revive.activity where id == " + $_GET['id']));
+    }
 ?>

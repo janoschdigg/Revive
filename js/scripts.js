@@ -19,7 +19,7 @@ $(document).ready(function (event) {
 
         obj.forEach(element => {
             container.innerHTML += `
-<ons-card id='activity `+ element.id + `' class='act'>
+<ons-card onclick='detail(`+ element.id + `)' id='activity' class='act'>
     <div class='calendarDate'>	
     <em>Samstag</em>
     <strong>Dezember</strong>

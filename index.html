@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- TEst -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +28,7 @@
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script>ons.disableAutoStyling()</script>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <script src="js/scripts.js"></script>
 </head>
@@ -39,25 +41,27 @@
 </div>
 
 
-<ons-page>
+<ons-navigator swipeable id="myNavigator" page="home.html"></ons-navigator>
+
+<template id="home.html">
+  <ons-page id="page1">
     <ons-toolbar>
-        <div class="center">Revive</div>
-        </ons-toolbar>
+      <div class="center">Revive</div>
+    </ons-toolbar>
     <ons-tabbar id="tabbar">
-        <ons-tab page="home.html" icon="ion-md-home" label="Angebote"></ons-tab>
+        <ons-tab page="tab1.html" icon="ion-md-home" label="Angebote"></ons-tab>
         <ons-tab page="churches.html" icon="ion-md-flame" label="Kirchen"></ons-tab>
         <ons-tab page="profile.html" icon="ion-md-finger-print" label="Profil"></ons-tab>
-        
     </ons-tabbar>
-   
-</ons-page>
-<!-- Home Tab -->
-<template id="home.html">
+  </ons-page>
+  
+    
+  </template>
+  <template id="tab1.html">
     <ons-page id="Tab1">
       <div id="acitivities">
 
       </div>
-      
     </ons-page>
   </template>
   <!-- Profile Tab -->
@@ -70,7 +74,6 @@
         
       </div>
 
-     
     </ons-page>
   </template>
   <!-- Profile Tab -->
@@ -92,7 +95,7 @@
             23.10.2020
           </div>
           <div class="center">
-            Sport mit asylanten
+            Sport mit Asylanten
           </div>
           <div class="right">
             <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
@@ -116,6 +119,20 @@
 
   <template id="details.html">
     <ons-page id="details">
+
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Home</ons-back-button></div>
+        <div class="center">Details</div>
+      </ons-toolbar>
+
+      <ons-card>
+        <div class="title"> Spielen im Altersheim</div>
+        <div class="content">
+          <p>Freie Plätze 2/10</p>
+          <ons-progress-bar style="border-radius: 5px; border: 1px solid lightgray;" value="20"></ons-progress-bar>
+        </div>
+      </ons-card>
+
     </ons-page>
   </template>
 
@@ -126,6 +143,24 @@
   document.querySelector('ons-toolbar .center')
     .innerHTML = event.tabItem.getAttribute('label');
 });
+
+function detail(id)
+{
+  console.log(id);
+  document.querySelector('#myNavigator').pushPage('details.html', {data: {title: 'Detailansicht'}});
+}
+
+// document.addEventListener('init', function(event) {
+//   var page = event.target;
+
+//   if (page.id === 'page1') {
+//     page.querySelector('#activity').onclick = function() {
+//       document.querySelector('#myNavigator').pushPage('details.html', {data: {title: 'Detailansicht'}});
+//     };
+//   } else if (page.id === 'page2') {
+//     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+//   }
+// });
 
 
 </script>
