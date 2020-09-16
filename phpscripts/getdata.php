@@ -4,10 +4,15 @@
     require('../phpscripts/connection.php');
     $con = new Connection();
     $type = $_GET['type'];
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+   
 
     if($type == 'activity')
     {
-        echo json_encode($con->sqlexec("Select * from revive.activity"));
+        echo json_encode($con->sqlexec("Select * from revive.activity order by date asc"));
     }
 
     if($type == 'church')
@@ -17,6 +22,10 @@
 
     if($type == 'detail' && isset($_GET['id']))
     {
-        echo json_encode($con->sqlexec("Select * from revive.activity where id == " + $_GET['id']));
+        echo json_encode($con->sqlexec("Select * from revive.activity where id = " . $id));
+    }
+    if($type == 'user' && isset($_GET['id']))
+    {
+        echo json_encode($con->sqlexec("Select * from revive.user where id = " . $id));
     }
 ?>

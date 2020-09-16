@@ -23,12 +23,12 @@ body{
 
 .churchright{
     position: relative;
-    margin-left: 170px !important;
+    margin-left: 120px !important;
     
 }
 
 .churchlogo{
-    max-width: 150px;
+    max-width: 100px;
     max-height: 50px;
 }
 
@@ -182,4 +182,9 @@ div.calendarDate span {
     content: "\e906";
     color: #c9c9c9;
     margin-left: -1.064453125em;
+  }
+
+
+  .hidden{
+    display: none;
   }
