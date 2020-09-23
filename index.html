@@ -96,9 +96,6 @@
           <div class="title churchright">Remy Hangartner</div>
           <div class="content churchright">Verantwortlicher FEG Sulgen</div>
   
-          <div class="right">
-            <ons-icon style="font-size: 24px; float: right; margin-right: 10px; margin-top: -40px;" icon="md-edit"></ons-icon>
-          </div>
         </ons-card>
         <ons-list>
           <ons-list-header>Meine Angebote</ons-list-header>
@@ -110,6 +107,7 @@
               Sport mit Asylanten
             </div>
             <div class="right">
+              <ons-icon style="font-size: 24px;  margin-right: 20px;" icon="md-edit"></ons-icon>
               <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
             </div>
           </ons-list-item>
@@ -121,6 +119,33 @@
               Spiele im Altersheim
             </div>
             <div class="right">
+              <ons-icon style="font-size: 24px;  margin-right: 20px;" icon="md-edit"></ons-icon>
+
+              <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
+            </div>
+          </ons-list-item>
+          <ons-list-item>
+            <div class="left">
+              15.10.2020
+            </div>
+            <div class="center">
+              Test 4
+            </div>
+            <div class="right">
+              <ons-icon style="font-size: 24px;  margin-right: 20px;" icon="md-edit"></ons-icon>
+
+              <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
+            </div>
+          </ons-list-item>
+          <ons-list-item>
+            <div class="left">
+              14.11.2020
+            </div>
+            <div class="center">
+Test 5            </div>
+            <div class="right">
+              <ons-icon style="font-size: 24px;  margin-right: 20px;" icon="md-edit"></ons-icon>
+
               <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
             </div>
           </ons-list-item>
@@ -133,16 +158,13 @@
 
   <template id="details.html">
     <ons-page id="details">
-
       <ons-toolbar>
         <div class="left"><ons-back-button>Home</ons-back-button></div>
         <div class="center">Details</div>
       </ons-toolbar>
       <div id="detailsContainer">
-        
-      </div>
-     
 
+      </div>
     </ons-page>
   </template>
 
@@ -156,7 +178,6 @@
 
 function detail(id)
 {
-  console.log(id);
   getDetailData(id);
   document.querySelector('#myNavigator').pushPage('details.html', {data: {title: 'Detailansicht'}});
 
