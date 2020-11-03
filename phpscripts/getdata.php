@@ -21,11 +21,11 @@ if($type == 'church')
 }
 if($type == 'detail' && isset($_GET['id']))
 {
-    echo json_encode($con->sqlexec("Select * from revive.activity where id = " . $id));
+    echo json_encode(mb_convert_encoding($con->sqlexec("Select * from revive.activity where id = " . $id), 'UTF-8', 'UTF-8'));
 }
 if($type == 'user' && isset($_GET['id']))
 {
-    echo json_encode($con->sqlexec("Select * from revive.user where id = " . $id));
+    echo json_encode(mb_convert_encoding($con->sqlexec("Select * from revive.user where id = " . $id), 'UTF-8', 'UTF-8'));
 }
 
 ?>
