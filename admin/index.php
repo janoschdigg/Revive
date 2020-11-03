@@ -20,7 +20,6 @@ else
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<body>
     <nav>
         <img src="../images/churches/iconbird.svg" alt="Logo" class="logo">
         <h2>REVIVE Admin Page</h2> 
@@ -32,6 +31,5 @@ else
             <a href="overview.php"><li class="card"><h3>Meine Aktivitäten</h3>Übersicht über meine erfassten Aktivitäten</li></a>
         </ul>
     </main>
-    </body>
 </body>
 </html>
