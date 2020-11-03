@@ -12,7 +12,7 @@ background: #dbe8ff !important;
 
 
 :root {
-    --main-color: #2c4c9a; 
+    --main-color: #2b2b2b; 
     --second-color: #5771b5;
   }
 
@@ -140,7 +140,6 @@ div.calendarDate {
     background-color: #fff;
     border-radius: 0.7em;
     -moz-border-radius: 0.7em;
-    border: 1px solid #f2f2f0;
     overflow: hidden;
     margin-top: 5px;
 }

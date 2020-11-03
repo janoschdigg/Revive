@@ -51,7 +51,7 @@ function printActivities(category)
                 <strong>`+ date.toLocaleString('de-ch', { month: 'long' }) + `</strong>
                 <span>`+ date.getDate() + `</span>
                 </div>
-                <div class='actright title'>`+ element.title + `</div>
+                <div class='actright title'><b>`+ element.title + `</b></div>
                 <div class='actright content'>`+ element.body + `</div>
             </ons-card>
             `;
