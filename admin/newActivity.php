@@ -30,7 +30,7 @@ else
     <main>
         <div class="container">
             <h1>Neue Aktivität erfassen</h1>
-            <form>
+            <form action="overview.php" method="POST">
                 <input type="text" placeholder="Titel"><br>
                 <textarea placeholder="Beschreibung">
 
@@ -38,7 +38,7 @@ else
                 <input type="date" placeholder="Datum"><br>
                 <input type="text" placeholder="Zeit z.B. 12:00"><br>
                 <input type="number" placeholder="Maximale Personen"><br>
-
+                <input type="submit" value="Speichern">
             </form>
 
         </div>
