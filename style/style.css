@@ -1,3 +1,16 @@
+.red{
+  background: #ffdbdb !important;
+}
+
+.yellow{
+background: #fffddb !important;
+}
+
+.blue{
+background: #dbe8ff !important; 
+}
+
+
 :root {
     --main-color: #2c4c9a; 
     --second-color: #5771b5;
@@ -201,3 +214,45 @@ div.calendarDate span {
   .hidden{
     display: none;
   }
+
+  .selectors{
+    height: 120px;
+  }
+
+  .catselector{
+    position: absolute;
+    width:  20%;
+      height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      display: inline !important;
+  }
+
+  .sel1{
+    left: 0;
+    background-image: url('../images/outreach.png');  
+    background-size: cover;
+}
+
+  .sel2{
+    left: 33%;
+    background-image: url('../images/sos.png');
+    background-size: cover;
+  }
+
+  .sel3{
+    left: 66%;
+    background-image: url('../images/event.png');
+    background-size: cover;
+    
+  }
+
+  .sel1 p{
+    margin-left: -10px;
+  }
+  

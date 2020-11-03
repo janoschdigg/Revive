@@ -3,28 +3,49 @@ $(document).ready(function (event) {
     $('#loading').show();
     setTimeout(function () {
         $('#loading').fadeOut();
-    }, 300);
+    }, 1);
 });
 
+
+var activitylist = null;
 
 // Load Activities
 $(document).ready(function (event) {
 
     $.post("phpscripts/getdata.php?type=activity", function (data) {
 
-        var container = document.getElementById("acitivities");
+    var obj = JSON.parse(data);
+    activitylist = obj;
+    printActivities(0);
 
-        var obj = JSON.parse(data);
+    });
+});
 
+function printActivities(category)
+{
+    var container = document.getElementById("acitivities");
 
-        obj.forEach(element => {
-            var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-            var date = new Date(element.date);
-            var dayName = days[date.getDay()];
+    container.innerHTML = "";
 
-
+    activitylist.forEach(element => {
+        var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+        var date = new Date(element.date);
+        var dayName = days[date.getDay()];
+        var backgroundclass = '';
+        if(element.fcategoryID == 1)
+        {
+            backgroundclass = 'red';
+        }
+        else if(element.fcategoryID == 2){
+            backgroundclass = 'yellow';
+        }
+        else{
+            backgroundclass = 'blue';
+        }
+        if(element.fcategoryID == category || category == 0)
+        {
             container.innerHTML += `
-            <ons-card onclick='detail(`+ element.id + `)' id='activity' class='act'>
+            <ons-card onclick='detail(`+ element.id + `)' id='activity' class='act `+ backgroundclass + `'>
                 <div class='calendarDate'>	
                 <em>`+ dayName + `</em>
                 <strong>`+ date.toLocaleString('de-ch', { month: 'long' }) + `</strong>
@@ -34,10 +55,10 @@ $(document).ready(function (event) {
                 <div class='actright content'>`+ element.body + `</div>
             </ons-card>
             `;
-        });
-
+        }
+        
     });
-});
+}
 
 // Load Churches
 $(document).ready(function (event) {
@@ -130,7 +151,6 @@ function getDetailData(id) {
 
     });
 };
-
 
 
 

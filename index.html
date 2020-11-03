@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- TEst -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -15,13 +15,20 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
   <link rel="apple-touch-icon" sizes="167x167" href="images/icon.png">
 
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-  <link rel="apple-touch-startup-image" href="images/icon.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="images/icon.png"
+    media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
 
 
   <link rel="stylesheet" href="style/style.css">
@@ -32,33 +39,49 @@
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <script src="js/scripts.js"></script>
 </head>
+
 <body>
 
-<!-- Loading Animation -->
-<div class="center" id="loading">
-  <img src="images/bird.png">
-  <div class="loader center"></div>
-</div>
+  <!-- Loading Animation -->
+  <div class="center" id="loading">
+    <img src="images/bird.png">
+    <div class="loader center"></div>
+  </div>
 
 
-<ons-navigator swipeable id="myNavigator" page="home.html"></ons-navigator>
+  <ons-navigator swipeable id="myNavigator" page="home.html"></ons-navigator>
 
-<template id="home.html">
-  <ons-page id="page1">
-    <ons-toolbar>
-      <div class="center">Revive</div>
-    </ons-toolbar>
-    <ons-tabbar id="tabbar">
+  <template id="home.html">
+    <ons-page id="page1">
+      <ons-toolbar>
+        <div class="center">Revive</div>
+      </ons-toolbar>
+      <ons-tabbar id="tabbar">
         <ons-tab page="tab1.html" icon="ion-md-home" label="Angebote"></ons-tab>
         <ons-tab page="churches.html" icon="ion-md-flame" label="Kirchen"></ons-tab>
         <ons-tab page="profile.html" icon="ion-md-finger-print" label="Profil"></ons-tab>
-    </ons-tabbar>
-  </ons-page>
-  
-    
+      </ons-tabbar>
+    </ons-page>
+
+
   </template>
   <template id="tab1.html">
     <ons-page id="Tab1">
+      <ons-card onclick="printActivities(0)" style="text-align: center;">
+        Alle Anzeigen
+      </ons-card>
+      <div class="selectors">
+        <div onclick="printActivities(2)" class="catselector sel1">
+          <p>Outreach</p>
+        </div>
+        <div onclick="printActivities(1)" class="catselector sel2">
+          <p>S.O.S</p>
+        </div>
+        <div onclick="printActivities(3)" class="catselector sel3">
+          <p>Events</p>          
+        </div>
+      </div>
+
       <div id="acitivities">
 
       </div>
@@ -67,9 +90,9 @@
   <!-- Profile Tab -->
   <template id="churches.html">
     <ons-page id="Tab2">
-     
+
       <div id="churches">
-        
+
       </div>
 
     </ons-page>
@@ -95,10 +118,10 @@
           <img src="images/churches/sulgen.jpg" class="churchlogo">
           <div class="title churchright">Remy Hangartner</div>
           <div class="content churchright">Verantwortlicher FEG Sulgen</div>
-  
+
         </ons-card>
         <ons-card>
-          <ons-button modifier="large--quiet">Neues Angebot erfassen</ons-button>
+          <ons-button modifier="large--quiet">Neues Angebot erfassen </ons-button>
         </ons-card>
         <ons-list>
           <ons-list-header>Meine Angebote</ons-list-header>
@@ -145,24 +168,26 @@
               14.11.2020
             </div>
             <div class="center">
-Test 5            </div>
+              Test 5 </div>
             <div class="right">
               <ons-icon style="font-size: 24px;  margin-right: 20px;" icon="md-edit"></ons-icon>
 
               <ons-icon style="font-size: 24px; color: red; margin-right: 10px;" icon="md-delete"></ons-icon>
             </div>
           </ons-list-item>
-        </ons-list>    
+        </ons-list>
       </div>
-      
-     
+
+
     </ons-page>
   </template>
 
   <template id="details.html">
     <ons-page id="details">
       <ons-toolbar>
-        <div class="left"><ons-back-button>Home</ons-back-button></div>
+        <div class="left">
+          <ons-back-button>Home</ons-back-button>
+        </div>
         <div class="center">Details</div>
       </ons-toolbar>
       <div id="detailsContainer">
@@ -172,19 +197,19 @@ Test 5            </div>
   </template>
 
 </body>
+
 </html>
 <script>
-    document.addEventListener('prechange', function(event) {
-  document.querySelector('ons-toolbar .center')
-    .innerHTML = event.tabItem.getAttribute('label');
-});
+  document.addEventListener('prechange', function (event) {
+    document.querySelector('ons-toolbar .center')
+      .innerHTML = event.tabItem.getAttribute('label');
+  });
 
-function detail(id)
-{
-  getDetailData(id);
-  document.querySelector('#myNavigator').pushPage('details.html', {data: {title: 'Detailansicht'}});
+  function detail(id) {
+    getDetailData(id);
+    document.querySelector('#myNavigator').pushPage('details.html', { data: { title: 'Detailansicht' } });
 
-}
+  }
 
 // document.addEventListener('init', function(event) {
 //   var page = event.target;
