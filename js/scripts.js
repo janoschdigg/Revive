@@ -78,7 +78,6 @@ $(document).ready(function (event) {
             <img src='images/churches/`+ element.logo + `' class='churchlogo'>
             <div class='title churchright'>`+ element.name + `</div>
             <ons-icon style="font-size: 24px; margin-top: -20px; margin-right: 0px; color: darkgray; float: right;" icon="md-email"></ons-icon>
-
             <div class='content churchright'>`+ element.verantwortlicher + `</div>
             </ons-card>
 `;
@@ -177,12 +176,6 @@ function getDetailData(id) {
     });
 };
 
-
-
-function login() {
-    document.getElementById('profile').classList.remove('hidden');
-    document.getElementById('login').classList.add('hidden');
-}
 
 
 

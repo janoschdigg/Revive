@@ -40,6 +40,15 @@
   <script src="js/scripts.js"></script>
 </head>
 
+<script>
+  if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) {
+
+  }
+  else {
+// Einblenden, wenn nicht per app geöffnet
+  }
+</script>
+
 <body>
 
   <!-- Loading Animation -->
@@ -78,7 +87,7 @@
           <p>S.O.S</p>
         </div>
         <div onclick="printActivities(3)" class="catselector sel3">
-          <p>Events</p>          
+          <p>Events</p>
         </div>
       </div>
 
