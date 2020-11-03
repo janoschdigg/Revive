@@ -11,16 +11,19 @@ var activitylist = null;
 
 // Load Activities
 $(document).ready(function (event) {
-
+    reloadactivities();
+   
+});
+function reloadactivities()
+{
     $.post("phpscripts/getdata.php?type=activity", function (data) {
 
-    var obj = JSON.parse(data);
-    activitylist = obj;
-    printActivities(0);
-
-    });
-});
-
+        var obj = JSON.parse(data);
+        activitylist = obj;
+        printActivities(0);
+    
+        });
+}
 function printActivities(category)
 {
     var container = document.getElementById("acitivities");
@@ -52,7 +55,7 @@ function printActivities(category)
                 <span>`+ date.getDate() + `</span>
                 </div>
                 <div class='actright title'><b>`+ element.title + `</b></div>
-                <div class='actright content'>`+ element.body + `</div>
+                <div class='minimizeContent actright content '>`+ element.body + `</div>
             </ons-card>
             `;
         }
@@ -74,6 +77,8 @@ $(document).ready(function (event) {
             <ons-card class='church'>
             <img src='images/churches/`+ element.logo + `' class='churchlogo'>
             <div class='title churchright'>`+ element.name + `</div>
+            <ons-icon style="font-size: 24px; margin-top: -20px; margin-right: 0px; color: darkgray; float: right;" icon="md-email"></ons-icon>
+
             <div class='content churchright'>`+ element.verantwortlicher + `</div>
             </ons-card>
 `;
@@ -116,6 +121,11 @@ function getDetailData(id) {
         var obj = JSON.parse(data);
 
         obj.forEach(element => {
+
+            var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+            var date = new Date(element.date);
+            var dayName = days[date.getDay()];
+
             if (element.participants != "unbegrenzt") {
                 var progressvalue = (element.booked / element.participants) * 100;
             }
@@ -126,18 +136,33 @@ function getDetailData(id) {
             var user = $.post("phpscripts/getdata.php?type=user&id=" + element.fuserid, function (dataUser) {
                 return JSON.parse(data);
             }, 'json');
-            var date = new Date(element.date)
-            var datestring = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
             container.innerHTML += `<ons-card>
-            <div class="title"> `+ element.title + `</div>
-            <div class="title"><b> `+ datestring + `</b></div>
+            
+            
+
+
+            <div class="title"><b>`+ element.title + `</b></div>
+            <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-md-calendar">  ` + dayName + " " + date.getDate()+"." + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
+            <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-md-time'>  " +element.time + ` Uhr</div>
+            
+
             <div class="content">
-              <p>Anmeldungen <b>`+ element.booked + ` von ` + element.participants + `</b></p>
-              <ons-progress-bar style="border-radius: 5px; border: 1px solid lightgray;" value="`+ progressvalue + `"></ons-progress-bar>
-              <p><b>Beschreibung</b></p>
               <p>`+ element.body + `</p>
-              <div class="btn" onclick="register(`+ element.id + `, '` + element.title + `')">Anmelden</div>
             </div>
+          </ons-card>
+          <ons-card>
+          <div class="content">
+          <p style>Anmeldungen <b>`+ element.booked + ` von ` + element.participants + `</b></p>
+          </div>
+        
+          <div class="progress">
+                <div class="bar" style="width:`+ progressvalue + `%">
+                    <p class="percent"><b>`+ progressvalue + `%</b></p>
+                </div>
+            </div>
+            <br>
+            <div class="btn" onclick="register(`+ element.id + `, '` + element.title + `')">Anmelden</div>
+
           </ons-card>
           <ons-card>
             <div class="title">Verantwortlicher:</div>
