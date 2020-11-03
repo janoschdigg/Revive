@@ -35,6 +35,8 @@
         try 
         {
             $this->dbcon = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname","$this->dbuser", "$this->dbpass");
+			$sql = $this->dbcon->prepare("SET NAMES 'utf8'");
+        	$sql->execute();
         } 
         catch(PDOException $e)
         {
