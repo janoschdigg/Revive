@@ -11,12 +11,12 @@ if(isset($_GET['id']))
 }
 if($type == 'activity')
 {
-    echo json_encode(utf8_encode($con->sqlexec("Select * from revive.activity order by date asc")));
+    echo json_encode($con->sqlexec("Select * from revive.activity order by date asc"));
 
 }
 if($type == 'church')
 {
-    echo json_encode(utf8_encode($con->sqlexec("Select * from revive.church")));
+    echo json_encode($con->sqlexec("Select * from revive.church"));
 }
 if($type == 'detail' && isset($_GET['id']))
 {
