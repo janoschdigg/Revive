@@ -8,6 +8,7 @@ $(document).ready(function (event) {
 
 
 var activitylist = null;
+var churchlist = null;
 
 // Load Activities
 $(document).ready(function (event) {
@@ -69,9 +70,9 @@ $(document).ready(function (event) {
     $.post("phpscripts/getdata.php?type=church", function (data) {
 
         var container = document.getElementById("churches");
-
+        
         var obj = JSON.parse(data);
-
+        churchlist = obj;
         obj.forEach(element => {
             container.innerHTML += `
             <ons-card class='church'>
@@ -141,9 +142,10 @@ function getDetailData(id) {
 
 
             <div class="title"><b>`+ element.title + `</b></div>
-            <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-md-calendar">  ` + dayName + " " + date.getDate()+"." + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
+            <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-md-calendar">  ` + dayName + " " + date.getDate()+". " + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
             <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-md-time'>  " +element.time + ` Uhr</div>
-            
+            <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-ios-pin'>  " +element.location + `</div>
+
 
             <div class="content">
               <p>`+ element.body + `</p>

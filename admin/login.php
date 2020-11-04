@@ -19,6 +19,10 @@ if(isset($_POST['username'])&&isset($_POST['password']))
         if($_POST['password'] === $value['password'])
         {
           $_SESSION["logedin"] = "yes";
+          $_SESSION["userid"] = $value['id'];
+          $_SESSION["username"] = $value['name'];
+          $_SESSION["churchid"] = $value['fchurchid'];
+
           header("Location: index.php");
         }
       }

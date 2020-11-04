@@ -1,5 +1,16 @@
 
 <?php
+
+session_start();
+if($_SESSION["logedin"] === "yes")
+{
+
+}
+else
+{
+    header("Location: login.php");
+}
+
 require('../phpscripts/connection.php');
 $con = new Connection();
 
@@ -12,7 +23,7 @@ if(isset($_GET['id']))
 
 if($type == 'activity')
 {
-	$result = $con->sqlexec("Select * from revive.activity where date > NOW() AND deleted = 0 order by date asc");
+	$result = $con->sqlexec("Select * from revive.activity where date > NOW() order by date asc");
    echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 
 }
