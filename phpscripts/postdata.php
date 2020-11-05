@@ -29,7 +29,7 @@ if($type == 'registration')
    }
    $booked = $booked + 1;
 
-   $con->sqlexec("INSERT INTO registration(id, factivityID, name, phone) VALUES (null,'$id','".$_GET['name']."','".$_GET['phone']."', 0);");
+   $con->sqlexec("INSERT INTO registration(id, factivityID, name, phone, deleted) VALUES (null,$id,'".$_GET['name']."','".$_GET['phone']."', 0);");
    $con->sqlexec("UPDATE activity set booked = $booked where id = '$id'");
 
 }
