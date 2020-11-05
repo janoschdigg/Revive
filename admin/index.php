@@ -12,15 +12,19 @@ else
 require('../phpscripts/connection.php');
     $con = new Connection();
 
-if(isset($_POST['submit']))
+if(isset($_POST['delete']))
 {
-    
-
+    $con->sqlexec("UPDATE activity set deleted = 1 where id = " .$_POST['delete']);
+    header("Location: index.php");
+}
+if(isset($_POST['submit']) || isset($_POST['update']))
+{
     $church = $_SESSION['churchid'];
     $user = $_SESSION['userid'];
 
-    $title = $_POST['title'];
+    $id = $_POST['id'];
 
+    $title = $_POST['title'];
     $location = $_POST['location'];
     $date = $_POST['date'];
     $time = $_POST['time'];
@@ -28,8 +32,16 @@ if(isset($_POST['submit']))
     $category = $_POST['category'];
     $body = $_POST['body'];
 
-    $con->sqlexec("INSERT INTO activity(id, title, body, date, time, location, participants, booked, fchurchId, fuserid, fcategoryID, deleted) VALUES (null,'$title','$body','$date','$time', '$location',$participants,0,$church,$user,$category,0)");
+    if(isset($_POST['update']))
+    {
+        $con->sqlexec("UPDATE activity set title = '$title', body = '$body', date = '$date', time = '$time', location = '$location', participants = $participants, fcategoryID = $category, deleted = 0 where id = '$id'");
+    }
+    else{
+        $con->sqlexec("INSERT INTO activity(id, title, body, date, time, location, participants, booked, fchurchId, fuserid, fcategoryID, deleted) VALUES (null,'$title','$body','$date','$time', '$location',$participants,0,$church,$user,$category,0)");
 
+    }
+
+    // header("Location: index.php");
 }
 
 ?>
@@ -69,7 +81,7 @@ if(isset($_POST['submit']))
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img class="logo" src="../images/churches/iconbird.svg">
-    <a class="navbar-brand" href="#">Revive Admin</a>
+    <a class="navbar-brand" href="index.php">Revive Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -135,8 +147,14 @@ if(isset($_POST['submit']))
 
                     </div></td>
                         <td>
-                            <button type='button' class='btn btn-light'>Bearbeiten</button>
-                            <button type='button' class='btn btn-danger'>Löschen</button>
+                            <button type='button' onclick='edit(". $value['id'] .")' class='btn btn-light'>Bearbeiten</button>
+                            <button type='button' onclick='del(". $value['id'] .")' class='btn btn-danger'>Löschen</button>
+                            <form style='display: none' action='#' method='POST'>
+                                <input type='submit' name='delete' id='del". $value['id'] ."' value='". $value['id'] ."'>
+                            </form>
+                            <form style='display: none' action='newActivity.php' method='POST'>
+                                <input type='submit' name='update' id='edit". $value['id'] ."' value='". $value['id'] ."'>
+                            </form>
                         </td>
                     </tr>
                     ");
@@ -155,9 +173,18 @@ if(isset($_POST['submit']))
    
 </main>
 
+<script>
+    function del(id)
+    {
+        document.getElementById('del'+id).click();
+    }
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+    function edit(id)
+    {
+        document.getElementById('edit'+id).click();
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
 </html>

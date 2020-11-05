@@ -137,15 +137,11 @@ function getDetailData(id) {
                 return JSON.parse(data);
             }, 'json');
             container.innerHTML += `<ons-card>
-            
-            
-
 
             <div class="title"><b>`+ element.title + `</b></div>
             <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-md-calendar">  ` + dayName + " " + date.getDate()+". " + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
             <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-md-time'>  " +element.time + ` Uhr</div>
             <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-ios-pin'>  " +element.location + `</div>
-
 
             <div class="content">
               <p>`+ element.body + `</p>
@@ -166,9 +162,9 @@ function getDetailData(id) {
 
           </ons-card>
           <ons-card>
-            <div class="title">Verantwortlicher:</div>
+            <div class="title">Kontakt:</div>
             <div class="content">
-              `+ "userobj.name" + ` <ons-button style="align-self: right;" modifier="quiet">Nachricht <ons-icon icon="md-email"></ons-icon></ons-button>           
+              `+ "userobj.name" + ` <span>Nachricht <ons-icon icon="md-email"></ons-icon></span>           
             </div>
     
           </ons-card>
