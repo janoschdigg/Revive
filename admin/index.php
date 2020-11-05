@@ -41,32 +41,11 @@ if(isset($_POST['submit']) || isset($_POST['update']))
 
     }
 
-    // header("Location: index.php");
+    header("Location: index.php");
 }
 
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revive Admin Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <img src="../images/churches/iconbird.svg" alt="Logo" class="logo">
-        <h2>REVIVE Admin Page</h2> 
-        <a href="login.php?logout=true" style="float: right; margin-top:60px; margin-right: 20px; color: white;">Log Out</a>
-</nav>
-    <main>
-        <ul>
-            <a href="newActivity.php"><li class="card"><h3>Aktivität erfassen</h3>Eine neue Aktivität hinzufügen.</li></a>
-            <a href="overview.php"><li class="card"><h3>Meine Aktivitäten</h3>Übersicht über meine erfassten Aktivitäten</li></a>
-        </ul>
-    </main>
-</body>
-</html> -->
+
 
 <!doctype html>
 <html lang="de">
@@ -132,12 +111,12 @@ if(isset($_POST['submit']) || isset($_POST['update']))
                     $kat = $kats[$value['fcategoryID']];
                     $progressvalue = $value['booked'] / $value['participants'] * 100;
                     echo("
-                    <tr>
-                        <td>". $value['date'] ." / ".$value['time']."</td>
-                        <td>". $kat ."</td>
-                        <td>". $value['title'] ."</td>
+                    <tr '>
+                        <td onclick='detail(". $value['id'] .")'>". $value['date'] ." / ".$value['time']."</td>
+                        <td  onclick='detail(". $value['id'] .")'>". $kat ."</td>
+                        <td  onclick='detail(". $value['id'] .")'>". $value['title'] ."</td>
 
-                        <td>
+                        <td  onclick='detail(". $value['id'] .")'>
                         <p class='percent'><b>". $value['booked'] . " / ". $value['participants'] . "</b></p>
 
                         <div class='progress'>
@@ -174,9 +153,18 @@ if(isset($_POST['submit']) || isset($_POST['update']))
 </main>
 
 <script>
+    function detail(id)
+    {
+        window.open("detail.php?id="+id, "_self");
+    }
     function del(id)
     {
-        document.getElementById('del'+id).click();
+        var r = confirm("Sind sie sicher, dass sie den Eintrag löschen wollen?");
+        if (r == true) {
+            document.getElementById('del'+id).click();
+        } 
+        else{
+        }
     }
 
     function edit(id)

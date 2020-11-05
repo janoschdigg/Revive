@@ -87,6 +87,18 @@ $(document).ready(function (event) {
     });
 });
 
+function sendRegister(id)
+{
+    name = document.getElementById('name').value;
+    phone = document.getElementById('phone').value;
+    document.getElementById('name').value = "";
+    document.getElementById('phone').value = "";
+
+    $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {});
+
+    alert("Du hast dich erfolgreich angemeldet!");
+}
+
 function register(id, name) {
     console.log("Register" + id);
     var container = document.getElementById("detailsContainer");
@@ -105,7 +117,7 @@ function register(id, name) {
             <ons-input id="phone" float maxlength="20" placeholder="Telefonnummer"></ons-input>
             </label>
         </ons-list-item>
-        <div class="btn" onclick="alert('Du hast dich erfolgreich angemeldet!')">Anmelden</div>
+        <div class="btn" onclick="sendRegister(`+ id +`)">Anmelden</div>
 
     </ons-list>
     </ons-card>
@@ -126,16 +138,18 @@ function getDetailData(id) {
             var date = new Date(element.date);
             var dayName = days[date.getDay()];
 
-            if (element.participants != "unbegrenzt") {
-                var progressvalue = (element.booked / element.participants) * 100;
-            }
-            else {
-                var progressvalue = 60;
-            }
-
+            var progressvalue = (element.booked / element.participants) * 100;
+       
             var user = $.post("phpscripts/getdata.php?type=user&id=" + element.fuserid, function (dataUser) {
                 return JSON.parse(data);
             }, 'json');
+
+            button ="";
+            if(progressvalue < 100)
+            {
+                button = `<div class="btn" onclick="register(`+ element.id + `, '` + element.title + `')">Anmelden</div>`;
+            }
+
             container.innerHTML += `<ons-card>
 
             <div class="title"><b>`+ element.title + `</b></div>
@@ -148,27 +162,22 @@ function getDetailData(id) {
             </div>
           </ons-card>
           <ons-card>
-          <div class="content">
-          <p style>Anmeldungen <b>`+ element.booked + ` von ` + element.participants + `</b></p>
-          </div>
-        
-          <div class="progress">
+            <div class="content">
+            <p style>Anmeldungen <b>`+ element.booked + ` von ` + element.participants + `</b></p>
+            </div>
+            
+             <div class="progress">
                 <div class="bar" style="width:`+ progressvalue + `%">
                     <p class="percent"><b>`+ progressvalue + `%</b></p>
                 </div>
             </div>
             <br>
-            <div class="btn" onclick="register(`+ element.id + `, '` + element.title + `')">Anmelden</div>
+            
+            ` + button + `
 
-          </ons-card>
-          <ons-card>
-            <div class="title">Kontakt:</div>
-            <div class="content">
-              `+ "userobj.name" + ` <span>Nachricht <ons-icon icon="md-email"></ons-icon></span>           
-            </div>
-    
-          </ons-card>
-`;
+          </ons-card>`;
+          
+
         });
 
     });
