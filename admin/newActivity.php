@@ -70,7 +70,7 @@ else
 
             }
         ?>
-        <h2>Neue Aktivität erstellen</h2>
+        <h2><?php if(isset($upd)){echo "Aktivität bearbeiten";} else {echo "Neue Aktivität erstellen";} ?></h2>
         <form action="index.php" method="POST">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Titel</label>
