@@ -78,14 +78,25 @@ $(document).ready(function (event) {
         churchlist = obj;
         obj.forEach(element => {
             container.innerHTML += `
-            <ons-card class='church'>
-            <img src='images/churches/`+ element.logo + `' class='churchlogo'>
-            <div class='title churchright'>`+ element.name + `</div>
-            <ons-icon style="font-size: 24px; margin-top: -20px; margin-right: 0px; color: darkgray; float: right;" icon="md-email"></ons-icon>
-            <div class='content churchright'>`+ element.verantwortlicher + `</div>
-            </ons-card>
+            <ons-list-item>
+                <div class="left">
+                <img class="list-item__thumbnail" src="images/churches/`+ element.logo + `">
+                </div>
+                <div class="center">
+                <span class="list-item__title">`+ element.name + `</span><span class="list-item__subtitle">`+ element.verantwortlicher + `</span>
+                </div>
+            </ons-list-item>
 `;
         });
+//         obj.forEach(element => {
+//             container.innerHTML += `
+//             <ons-card class=''>
+//             <div class='title'>`+ element.name + `</div>
+//             <ons-icon style="font-size: 24px; margin-right: 0px; color: darkgray; float: right;" icon="md-email"></ons-icon>
+//             <div class='content >`+ element.verantwortlicher + `</div>
+//             </ons-card>
+// `;
+//         });
 
     });
 });
