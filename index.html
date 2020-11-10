@@ -41,13 +41,54 @@
 </head>
 
 <script>
-  if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) {
+  checktab();
+  
+  function showinfos()
+  {
+    showonline();
+    changetab();
+  }
+  
+  function showonline(){
+    document.getElementById("banner").style.display = "none";
+  }
+  
+  function checktab()
+  {
+    if(ons.platform.isAndroid())
+    {
+      var icon = "<img id='shareicon'  src='images/sharegoogle.png'> oder <img id='shareicon'  src='images/sharegoogle2.png'>";
+      var text ="zum Startbildschirm hinzufügen";
+    }
+    else
+    {
+      var icon = "<img id='shareicon'  src='images/share.png'>";
+      var text ="zum Home-Bildschirm";
+    }
+    
+      if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) 
+      {
 
+      }
+      else{
+      document.write("<div class='homescreen_banner' id = 'banner'><h1>Herzlich wilkommen</h1>  <h2>bei Revive</h2>  <img src='images/bird.png' id='logo_banner' alt='Logo' ><ons-button modifier='large--quiet' onclick='showonline()'>Online anzeigen</ons-button>  <p>    Sie können die App herunterladen indem sie auf folgendes Symbol klicken "+ icon +" und dann auf \""+ text +"\" klicken  </p></div>");
+
+      }
+       
+    
   }
-  else {
-// Einblenden, wenn nicht per app geöffnet
+  
+  if(urlParams.has('activated'))
+  {
+    document.write("<div class='computerbanner' id='computerbanner'>		<h1>Registration bestätigt</h1>		<p>Vielen Dank für deine Registration wir werden uns in Kürze bei dir melden, wenn Fragen sind melde dich unter info@glocalroots.ch</p>				<h3>Freundliche Grüsse</h3>		<img src='images/glocalmeet_mit_text.png' style='width: 500px;'>	</div>			   ");
   }
-</script>
+  else
+  {
+    document.write("<div class='computerbanner' id='computerbanner'>		<h1>Gerät nicht geeignet</h1>		<p>Leider ist diese Seite ur für Mobilgeräte geeignet. Bitte öffnen sie die Seite auf ihrem Smartphone oder Tablet.</p>				<h4>Vielen Dank für ihr Verständnis!</h4><h3>Freundliche Grüsse</h3>		<img src='images/glocalmeet_mit_text.png' style='width: 500px;'>	</div>			   ");
+    
+  }
+    
+  </script>
 
 <body>
 
