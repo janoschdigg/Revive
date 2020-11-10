@@ -109,8 +109,8 @@ function sendRegister(id)
     document.getElementById('phone').value = "";
 
     $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {});
-
     alert("Du hast dich erfolgreich angemeldet!");
+    window.open('index.html', '_self');
 }
 
 function register(id, name) {
