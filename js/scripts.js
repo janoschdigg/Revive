@@ -163,7 +163,7 @@ function getDetailData(id) {
             {
                 button = `<div class="btn" onclick="register(`+ element.id + `, '` + element.title + `')">Anmelden</div>`;
             }
-            progressvalue = round(progressvalue, 0);
+            progressvalue = Math.round(progressvalue, 1);
             container.innerHTML += `<ons-card>
 
             <div class="title"><b>`+ element.title + `</b></div>
