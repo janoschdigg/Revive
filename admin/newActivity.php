@@ -102,6 +102,7 @@ else
                     <option value="1">S.O.S</option>
                     <option value="2">Outreach</option>
                     <option value="3">Event</option>
+                    <option value="4">Equip</option>
                 </select>
             </div>
            

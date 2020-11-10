@@ -43,8 +43,11 @@ function printActivities(category)
         else if(element.fcategoryID == 2){
             backgroundclass = 'yellow';
         }
-        else{
+        else if(element.fcategoryID == 3){
             backgroundclass = 'blue';
+        }
+        else if(element.fcategoryID == 4){
+            backgroundclass = 'green';
         }
         if(element.fcategoryID == category || category == 0)
         {

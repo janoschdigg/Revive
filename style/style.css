@@ -2,6 +2,10 @@
   background: #ffdbdb !important;
 }
 
+.green{
+  background: #e0ffdb !important;
+}
+
 .yellow{
 background: #fffddb !important;
 }
@@ -218,21 +222,21 @@ div.calendarDate span {
   }
 
   .selectors{
-    height: 120px;
+    height: 90px;
   }
 
   .catselector{
     position: absolute;
-    width:  20%;
-      height: 70px;
+    width:  12%;
+    height: 45px;
     border-radius: 10px;
     padding: 20px;
     margin: 5px;
     text-align: center;
-      color: white;
-      font-size: 20px;
-      font-weight: 700;
-      display: inline !important;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline !important;
   }
 
   .sel1{
@@ -242,14 +246,21 @@ div.calendarDate span {
 }
 
   .sel2{
-    left: 33%;
+    left: 24.5%;
     background-image: url('../images/sos.png');
     background-size: cover;
   }
 
   .sel3{
-    left: 66%;
+    left: 49%;
     background-image: url('../images/event.png');
+    background-size: cover;
+    
+  }
+
+  .sel4{
+    left: 73.5%;
+    background-image: url('../images/equip.png');
     background-size: cover;
     
   }
