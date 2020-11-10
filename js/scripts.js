@@ -205,7 +205,7 @@ function getDetailData(id) {
 
 
 let deferredPrompt;
-const addBtn = document.querySelector('.add-button');
+const addBtn = document.getElementById('homescreen');
 addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
