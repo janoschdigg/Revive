@@ -100,7 +100,7 @@ if(isset($_POST['submit']) || isset($_POST['update']))
                  $fuserid = $_SESSION['userid'];
                  $data = $con->sqlexec("Select * from revive.activity where date > NOW() AND fuserid = ". $fuserid ." AND deleted = 0 order by date asc"); 
                     
-                $kats = ['', 'S.O.S', 'Outreach', 'Event'];
+                $kats = ['', 'S.O.S', 'Outreach', 'Event', 'Equip'];
 
 
                  

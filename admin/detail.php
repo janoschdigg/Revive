@@ -16,7 +16,7 @@ $id = $_GET['id'];
 $fuserid = $_SESSION['userid'];
 $data = $con->sqlexec("Select * from revive.activity where id = $id"); 
 
-$kats = ['', 'S.O.S', 'Outreach', 'Event'];
+$kats = ['', 'S.O.S', 'Outreach', 'Event', 'Equip'];
 
 if(isset($_POST['deleteRegistration']))
 {
