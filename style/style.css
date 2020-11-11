@@ -275,55 +275,46 @@ div.calendarDate span {
   }
 
   .selectors{
-    height: 90px;
+
+    width: 98%;
+    height: 80px;
+    display: flex;
   }
 
   .catselector{
-    position: absolute;
-    width:  12%;
-    height: 45px;
+    flex: 1;
+    margin-left: 7px;
     border-radius: 10px;
-    padding: 20px;
-    margin: 5px;
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     display: inline !important;
   }
 
   .sel1{
-    left: 0;
     background-image: url('../images/outreach.png');  
     background-size: cover;
 }
 
   .sel2{
-    left: 24.5%;
     background-image: url('../images/sos.png');
     background-size: cover;
   }
 
   .sel3{
-    left: 49%;
     background-image: url('../images/event.png');
     background-size: cover;
-    
   }
 
   .sel4{
-    left: 73.5%;
     background-image: url('../images/equip.png');
     background-size: cover;
-    
   }
 
-  .sel1 p{
-    margin-left: -10px;
+  .catselector p{
+    margin-top: 30px;
   }
-  
-
-
 
   /* PROGRESSBAR */
   .progress {
