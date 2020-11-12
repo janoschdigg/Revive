@@ -66,7 +66,6 @@ foreach($data as $key => $value)
   <?php require('navigation.php'); ?>
 
 <main>
-<div class="container" >
   <div class="row">
     <div class="col-sm-12 col-md-5 mb-2">
         <div class="card" >
@@ -159,20 +158,12 @@ foreach($data as $key => $value)
                                 ";
                             }
                         ?>
-                        <!-- DELETE BUTTON -->
-                        <!-- <td>
-                            <button type='button' onclick='delRegistration(". $value['id'] .")' class='btn btn-danger'>Löschen</button>
-                            <form style='display: none' action='#' method='POST'>
-                            <input type='submit' name='deleteRegistration' id='delRegistration".$value['name']."' value='".$value['name']."'>
-                        </form>
-                        </td> -->
                         
                     </tbody>
                 </table>
             </div>
         </div>    
     </div> 
-</div>
 
 </main>
 

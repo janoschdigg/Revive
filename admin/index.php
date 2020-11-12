@@ -61,8 +61,8 @@ if(isset($_POST['submit']) || isset($_POST['update']))
 
 
 <main>
-<h1>Hallo, <?php echo($_SESSION["username"]) ?></h1><br>
-    <h4>Übersicht über alle deine Aktivitäten:</h4>
+<h2>Hallo, <?php echo($_SESSION["username"]) ?></h2>
+    <p style="font-size: 20px;"><b>Übersicht über alle deine Aktivitäten:</b></p>
 <div class="card">
   <div class="card-body">
   

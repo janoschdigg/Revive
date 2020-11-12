@@ -50,11 +50,16 @@ main{
     color:black;
   }
 
-
   form{
+    width: 100%;
+    text-align: left;
+  }
+
+
+  .activityForm{
       text-align: left;
     transform:translate(50%,0%);
-      width: 50%;
+      width: 50% !important;
   }
 
   label{
@@ -65,7 +70,7 @@ main{
       h2{
           font-size: 18px;
       }
-    form{
+    .activityForm{
         text-align: left;
       transform:translate(0%,0%);
         width: 100%;
