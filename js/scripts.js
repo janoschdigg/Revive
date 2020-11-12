@@ -105,8 +105,6 @@ function sendRegister(id)
 {
     name = document.getElementById('name').value;
     phone = document.getElementById('phone').value;
-    document.getElementById('name').value = "";
-    document.getElementById('phone').value = "";
 
     $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
         
