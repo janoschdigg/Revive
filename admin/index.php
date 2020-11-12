@@ -89,7 +89,7 @@ if(isset($_POST['submit']) || isset($_POST['update']))
     <table class="table">
         <thead>
             <tr>
-            <th scope="col" >Datum / Zeit</th>
+            <th scope="col" class="d-none d-md-table-cell d-lg-table-cell">Datum / Zeit</th>
             <th scope="col" class="d-none d-md-table-cell d-lg-table-cell">Kategorie</th>
             <th scope="col">Titel</th>
 
@@ -116,7 +116,7 @@ if(isset($_POST['submit']) || isset($_POST['update']))
                     $progressvalue = $value['booked'] / $value['participants'] * 100;
                     echo("
                     <tr '>
-                        <td onclick='detail(". $value['id'] .")'>". $value['date'] ." / ".$value['time']."</td>
+                        <td class='d-none d-md-table-cell d-lg-table-cell' onclick='detail(". $value['id'] .")'>". $value['date'] ." / ".$value['time']."</td>
                         <td class='d-none d-md-table-cell d-lg-table-cell'  onclick='detail(". $value['id'] .")'>". $kat ."</td>
                         <td  onclick='detail(". $value['id'] .")'>". $value['title'] ."</td>
 
