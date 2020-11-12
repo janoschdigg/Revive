@@ -85,7 +85,7 @@ else
             <div class="form-group">
 
                     <label for="exampleFormControlInput1">Zeit</label>
-                    <input <?php if(isset($upd)){echo "value='".$time."'";} ?> name="time" required type="time" class="form-control" >
+                    <input <?php if(isset($upd)){echo "value='".$time."'";} ?> name="time" required type="text" class="form-control" placeholder="bsp. 12:00 oder 12:00 - 14:00">
                 </div>
            
             <div class="form-group">
