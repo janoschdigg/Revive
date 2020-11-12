@@ -29,22 +29,25 @@ else
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="logo" src="../images/churches/iconbird.svg">
-    <a class="navbar-brand" href="index.php">Revive Admin</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-        <div class="navbar-nav" style="width: 100%;">
-            <a class="nav-link active" href="index.php">Home</a>
-            <a class="nav-link" href="newActivity.php">Neue Aktivität</a>
-            <a class="nav-link float-right" href="login.php?logout=true">Log Out</a>
-
-        </div>
-    </div>
-
- 
-    </nav>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <img class="logo d-none d-md-block d-lg-block" src="../images/churches/iconbird.svg">
+  <a class="navbar-brand" href="index.php">Revive Admin</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="newActivity.php">Neue Aktivität</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link " href="login.php?logout=true">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     <main>
         <?php
             if(isset($_POST['update']))
