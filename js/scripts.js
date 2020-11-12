@@ -108,9 +108,17 @@ function sendRegister(id)
     document.getElementById('name').value = "";
     document.getElementById('phone').value = "";
 
-    $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {});
-    alert("Du hast dich erfolgreich angemeldet!");
-    window.open('index.html', '_self');
+    $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
+        
+        if(data){
+            alert("Du hast dich erfolgreich angemeldet!");
+            window.open('index.html', '_self');
+        }
+        else
+        {
+            alert("Anmeldung fehlgeschlagen!");
+        }
+    });
 }
 
 function register(id, name) {
