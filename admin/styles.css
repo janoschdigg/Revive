@@ -16,12 +16,13 @@ a{
 
 
 main{
-    width: 95%;
+    width: auto;
     text-align: center;
     padding: 20px;
     margin: 10px;
     background:#fafafa;
-}
+    border-radius: 10px;
+  }
 
 
 

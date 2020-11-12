@@ -22,6 +22,8 @@ if(isset($_POST['username'])&&isset($_POST['password']))
           $_SESSION["userid"] = $value['id'];
           $_SESSION["username"] = $value['name'];
           $_SESSION["churchid"] = $value['fchurchid'];
+          $_SESSION["isadmin"] = $value['isadmin'];
+
 
           header("Location: index.php");
         }
@@ -33,10 +35,6 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 
 }
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +50,7 @@ if(isset($_POST['username'])&&isset($_POST['password']))
   <div class="form">
       <h2>Revive LogIn</h2>
       <?php if(isset($false)) {echo("<p class='banner'>". $false ."</p>");} ?>
-    <form class="login-form" action="#" method="POST">
+    <form class="login-form" action="login.php" method="POST">
       <input type="text" name="username" placeholder="Benutzername"/>
       <input type="password" name="password" placeholder="Passwort"/>
       <button>Anmelden</button>
