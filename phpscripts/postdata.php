@@ -2,14 +2,7 @@
 <?php
 
 session_start();
-if($_SESSION["logedin"] === "yes")
-{
 
-}
-else
-{
-    header("Location: login.php");
-}
 
 require('../phpscripts/connection.php');
 $con = new Connection();
@@ -33,12 +26,12 @@ if(isset($_GET['id']))
             $con->sqlexec("INSERT INTO registration(id, factivityID, name, phone, deleted) VALUES (null,$id,'".$_GET['name']."','".$_GET['phone']."', 0);");
             $con->sqlexec("UPDATE activity set booked = $booked where id = '$id'");
 
-            return true;
+            echo "true";
         }
     
     }
 }
-return false;
+echo "false";
 
 
 

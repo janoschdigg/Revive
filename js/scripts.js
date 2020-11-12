@@ -108,14 +108,14 @@ function sendRegister(id)
 
     $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
         
-        if(data){
-            alert(data);
+        if(data == "true"){
+            console.log(data);
             alert("Du hast dich erfolgreich angemeldet!");
             window.open('index.html', '_self');
         }
         else
         {
-            alert("Anmeldung fehlgeschlagen!");
+            alert("Bitte alles ausfüllen!");
         }
     });
 }
