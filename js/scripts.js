@@ -108,8 +108,7 @@ function sendRegister(id)
 
     $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
         
-        if(data == "true"){
-            console.log(data);
+        if(data.includes('true')){
             alert("Du hast dich erfolgreich angemeldet!");
             window.open('index.html', '_self');
         }

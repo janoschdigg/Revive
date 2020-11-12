@@ -12,16 +12,28 @@ else
 require('../phpscripts/connection.php');
 $con = new Connection();
 
+if(isset($_POST['deleteRegistrationID']))
+{
+    $con->sqlexec("UPDATE registration set deleted = 1 where id = " .$_POST['deleteRegistrationID']);
+
+    $data = $con->sqlexec("Select * from revive.activity where id = " .$_POST['fActID']); 
+    foreach($data as $key => $value)
+    {
+        $booked = $value['booked'];
+        $booked = $booked -1;
+        $con->sqlexec("UPDATE revive.activity set booked = $booked where id = " .$_POST['fActID']);
+
+    }
+    header("Location: #");
+}
+
 $id = $_GET['id'];
 $fuserid = $_SESSION['userid'];
 $data = $con->sqlexec("Select * from revive.activity where id = $id"); 
 
 $kats = ['', 'S.O.S', 'Outreach', 'Event', 'Equip'];
 
-if(isset($_POST['deleteRegistration']))
-{
-    $con->sqlexec("UPDATE registration set deleted = 1 where id = " .$_POST['deleteRegistration']);
-}
+
     
 foreach($data as $key => $value)
 {
@@ -105,7 +117,7 @@ foreach($data as $key => $value)
                             <td>
                                 <p class='percent' style="text-align: center;"><b><?php echo $booked. " / ". $participants;?></b></p>
                                 <div class='progress'>
-                                    <div class='bar' <?php echo ("style='width: " .$booked . "%';"); ?>> </div>
+                                    <div class='bar' <?php echo ("style='width: " .$percent . "%';"); ?>> </div>
                                 </div>
                             </td>
                         </tr>
@@ -142,7 +154,7 @@ foreach($data as $key => $value)
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Telefon</th>
-                            <!-- <th scope="col">Aktion</th> -->
+                            <th scope="col">Aktion</th>
                         </tr>
                     </thead>
                     <tbody style="text-align: left;">
@@ -157,18 +169,24 @@ foreach($data as $key => $value)
                                 <td><b>".$counter."</b></td>
                                 <td>".$value['name']."</td>
                                 <td>".$value['phone']."</td>
-                               
+                                <td>
+                                    <button type='button' onclick='delRegistration(". $value['id'] .")' class='btn btn-danger'>Löschen</button>
+                                    <form style='display: none' action='#' method='POST'>
+                                        <input type='number' name='fActID' value='".$value['factivityID']."'>
+                                        <input type='submit' name='deleteRegistrationID' id='delRegistration".$value['id']."' value='".$value['id']."'>
+                                    </form>
+                                </td>
                             </tr>
                                 ";
                             }
                         ?>
                         <!-- DELETE BUTTON -->
                         <!-- <td>
-                                    <button type='button' onclick='delRegistration(". $value['id'] .")' class='btn btn-danger'>Löschen</button>
-                                    <form style='display: none' action='#' method='POST'>
-                                    <input type='submit' name='deleteRegistration' id='delRegistration".$value['name']."' value='".$value['name']."'>
-                                </form>
-                                </td> -->
+                            <button type='button' onclick='delRegistration(". $value['id'] .")' class='btn btn-danger'>Löschen</button>
+                            <form style='display: none' action='#' method='POST'>
+                            <input type='submit' name='deleteRegistration' id='delRegistration".$value['name']."' value='".$value['name']."'>
+                        </form>
+                        </td> -->
                         
                     </tbody>
                 </table>

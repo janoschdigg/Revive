@@ -28,10 +28,22 @@ if(isset($_GET['id']))
 
             echo "true";
         }
+        else
+        {
+            echo "false";
+        }
     
     }
+    else
+        {
+            echo "false";
+        }
 }
-echo "false";
+else
+        {
+            echo "false";
+        }
+
 
 
 
