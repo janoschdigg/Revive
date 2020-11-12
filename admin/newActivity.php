@@ -101,11 +101,11 @@ else
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Kategorie</label>
-                <select <?php if(isset($upd)){echo "value='".$cat."'";} ?> name="category" class="form-control" id="exampleFormControlSelect1">
-                    <option value="1">S.O.S</option>
-                    <option value="2">Outreach</option>
-                    <option value="3">Event</option>
-                    <option value="4">Equip</option>
+                <select name="category" class="form-control" id="exampleFormControlSelect1">
+                    <option <?php if(isset($upd) && $cat == "1"){echo "selected";} ?> value="1">S.O.S</option>
+                    <option <?php if(isset($upd) && $cat == "2"){echo "selected";} ?> value="2">Outreach</option>
+                    <option <?php if(isset($upd) && $cat == "3"){echo "selected";} ?> value="3">Event</option>
+                    <option <?php if(isset($upd) && $cat == "4"){echo "selected";} ?> value="4">Equip</option>
                 </select>
             </div>
            
