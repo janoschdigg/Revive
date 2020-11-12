@@ -14,7 +14,7 @@ if(isset($_GET['id']))
     $id = $_GET['id'];
     if($type == 'registration')
     {
-        if(isset($_GET['name']) && $_GET['id'] != "" && isset($_GET['phone']) && $_GET['phone'] != "")
+        if(isset($_GET['name']) && $_GET['name'] != "" && isset($_GET['phone']) && $_GET['phone'] != "")
         {
             $result = $con->sqlexec("Select * from revive.activity where id = " . $id);
             foreach($result as $key => $value)
