@@ -59,7 +59,7 @@ main{
   .activityForm{
       text-align: left;
     transform:translate(50%,0%);
-      width: 50% !important;
+      width: 50% ;
   }
 
   label{
