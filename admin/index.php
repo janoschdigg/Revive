@@ -59,22 +59,26 @@ if(isset($_POST['submit']) || isset($_POST['update']))
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="logo" src="../images/churches/iconbird.svg">
-    <a class="navbar-brand" href="index.php">Revive Admin</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-        <div class="navbar-nav" style="width: 100%;">
-            <a class="nav-link active" href="index.php">Home</a>
-            <a class="nav-link" href="newActivity.php">Neue Aktivität</a>
-            <a class="nav-link float-right" href="login.php?logout=true">Log Out</a>
-
-        </div>
-    </div>
-
- 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <img class="logo d-none d-md-block d-lg-block" src="../images/churches/iconbird.svg">
+  <a class="navbar-brand" href="index.php">Revive Admin</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="newActivity.php">Neue Aktivität</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link " href="login.php?logout=true">Log Out</a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
 <main>
 <h1>Hallo, <?php echo($_SESSION["username"]) ?></h1><br>
     <h4>Übersicht über alle deine Aktivitäten:</h4>
@@ -85,11 +89,11 @@ if(isset($_POST['submit']) || isset($_POST['update']))
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">Datum / Zeit</th>
-            <th scope="col">Kategorie</th>
+            <th scope="col" >Datum / Zeit</th>
+            <th scope="col" class="d-none d-md-table-cell d-lg-table-cell">Kategorie</th>
             <th scope="col">Titel</th>
 
-            <th scope="col">Anmeldungen</th>
+            <th scope="col" class="d-none d-md-table-cell d-lg-table-cell">Anmeldungen</th>
 
             <th scope="col">Aktionen</th>
 
@@ -113,13 +117,13 @@ if(isset($_POST['submit']) || isset($_POST['update']))
                     echo("
                     <tr '>
                         <td onclick='detail(". $value['id'] .")'>". $value['date'] ." / ".$value['time']."</td>
-                        <td  onclick='detail(". $value['id'] .")'>". $kat ."</td>
+                        <td class='d-none d-md-table-cell d-lg-table-cell'  onclick='detail(". $value['id'] .")'>". $kat ."</td>
                         <td  onclick='detail(". $value['id'] .")'>". $value['title'] ."</td>
 
-                        <td  onclick='detail(". $value['id'] .")'>
+                        <td class='d-none d-md-table-cell d-lg-table-cell' onclick='detail(". $value['id'] .")'>
                         <p class='percent'><b>". $value['booked'] . " / ". $value['participants'] . "</b></p>
 
-                        <div class='progress'>
+                        <div  class='progress'>
                         <div class='bar' style='width:". $progressvalue ."%'>
                             
                         </div>
@@ -173,6 +177,7 @@ if(isset($_POST['submit']) || isset($_POST['update']))
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>  
+</body>
 </html>
