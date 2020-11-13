@@ -23,7 +23,7 @@ if($type == 'church')
 }
 if($type == 'detail' && isset($_GET['id']))
 {
-	$result = $con->sqlexec("Select * from revive.activity where id = " . $id);
+	$result = $con->sqlexec("Select act.id, title, date, body, time, location, participants, booked, fchurchId, fuserid, fcategoryID, deleted, name, fAdminId, logo, verantwortlicher from revive.activity as act INNER Join revive.church as ch ON act.fchurchID = ch.id where act.id = " . $id);
    echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 }
 if($type == 'user' && isset($_GET['id']))

@@ -88,15 +88,6 @@ $(document).ready(function (event) {
             </ons-list-item>
 `;
         });
-//         obj.forEach(element => {
-//             container.innerHTML += `
-//             <ons-card class=''>
-//             <div class='title'>`+ element.name + `</div>
-//             <ons-icon style="font-size: 24px; margin-right: 0px; color: darkgray; float: right;" icon="md-email"></ons-icon>
-//             <div class='content >`+ element.verantwortlicher + `</div>
-//             </ons-card>
-// `;
-//         });
 
     });
 });
@@ -197,7 +188,18 @@ function getDetailData(id) {
 
           </ons-card>
           <ons-card>
-          
+            <ons-list>
+
+            <ons-list-item>
+                <div class="left">
+                    <img class="list-item__thumbnail" src="images/churches/`+ element.logo + `">
+                </div>
+                <div class="center">
+                    <span class="list-item__title">`+ element.name + `</span><span class="list-item__subtitle">`+ element.verantwortlicher + `</span>
+                </div>
+                </ons-list-item>
+            </ons-list>
+
           </ons-card>
           `;
           
