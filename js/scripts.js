@@ -190,12 +190,16 @@ function getDetailData(id) {
           <ons-card>
             <ons-list>
 
-            <ons-list-item>
+            <ons-list-item onclick="mail('`+ element.mail + `')">
                 <div class="left">
                     <img class="list-item__thumbnail" src="images/churches/`+ element.logo + `">
                 </div>
                 <div class="center">
-                    <span class="list-item__title">`+ element.name + `</span><span class="list-item__subtitle">`+ element.verantwortlicher + `</span>
+                    <span class="list-item__title">`+ element.name + `</span><span class="list-item__subtitle">`+ element.username + `</span>
+                </div>
+                <div class="right">
+                <ons-icon icon='ion-md-mail' style='font-size: 20px; color: gray;'>
+               
                 </div>
                 </ons-list-item>
             </ons-list>
@@ -210,3 +214,7 @@ function getDetailData(id) {
 };
 
 
+function mail(email)
+{
+    window.location.href = "mailto:" + email;
+}
