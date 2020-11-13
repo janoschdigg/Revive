@@ -14,6 +14,14 @@
       <li class="nav-item">
         <a class="nav-link" href="newActivity.php">Neue Aktivität</a>
       </li>
+      <li class='nav-item dropdown'>
+          <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <i class="fas fa-cog"></i>            
+          </a>
+          <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+            <a class='dropdown-item' href='changepw.php'>Passwort ändern</a>
+          </div>
+        </li>
 
      <?php
         if($_SESSION["isadmin"] === "1")

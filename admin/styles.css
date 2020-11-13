@@ -44,6 +44,10 @@ main{
     background:#073c91;
   }
   
+.klein{
+  max-width: 40% !important;
+}
+
   .percent {
     margin:0;
     font-size:12px;
