@@ -164,8 +164,8 @@ function getDetailData(id) {
             container.innerHTML += `<ons-card>
 
             <div class="title"><b>`+ element.title + `</b></div>
-            <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-md-calendar">  ` + dayName + " " + date.getDate()+". " + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
-            <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-md-time'>  " +element.time + ` Uhr</div>
+            <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-ios-calendar">  ` + dayName + " " + date.getDate()+". " + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
+            <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-ios-time'>  " +element.time + ` Uhr</div>
             <div class="title" style="font-size: 18px;">`+ "<ons-icon icon='ion-ios-pin'>  " +element.location + `</div>
 
             <div class="content">
@@ -198,7 +198,7 @@ function getDetailData(id) {
                     <span class="list-item__title">`+ element.name + `</span><span class="list-item__subtitle">`+ element.username + `</span>
                 </div>
                 <div class="right">
-                <ons-icon icon='ion-md-mail' style='font-size: 20px; color: gray;'>
+                <ons-icon icon='ion-ios-mail' style='font-size: 20px; color: gray;'>
                
                 </div>
                 </ons-list-item>
