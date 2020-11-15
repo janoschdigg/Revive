@@ -357,7 +357,11 @@ div.calendarDate span {
 
   }
 
-
+.version{
+  padding: 15px;
+  opacity: 0.7;
+  text-align: center;
+}
 
   /* Custom icon */
   .my-custom-icon {
@@ -373,3 +377,4 @@ div.calendarDate span {
       background-image: url('images/iconbird.svg');
     }
   }
+
