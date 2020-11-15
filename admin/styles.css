@@ -48,6 +48,14 @@ main{
   max-width: 40% !important;
 }
 
+.disNone{
+  display: none;
+}
+
+.disBlock{
+  display: block;
+}
+
   .percent {
     margin:0;
     font-size:12px;

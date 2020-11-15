@@ -25,8 +25,11 @@ function reloadactivities()
     
         });
 }
+
+
 function printActivities(category)
 {
+  
     var container = document.getElementById("acitivities");
 
     container.innerHTML = "";

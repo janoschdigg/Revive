@@ -275,7 +275,7 @@ div.calendarDate span {
   }
 
   .selectors{
-
+    margin-top: 10px;
     width: 98%;
     height: 80px;
     display: flex;
