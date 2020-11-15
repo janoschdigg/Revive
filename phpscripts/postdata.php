@@ -47,7 +47,6 @@ else if(isset($_POST['feedback']))
     $waiver = $_POST['waiver'];
 
     $body = "
-    <h2>Neuer Feedback eintrag</h2>
     <div>
         <p><b>Name: </b>$name</p>
         <p><b>Nummer: </b>$phone</p>

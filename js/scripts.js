@@ -171,14 +171,7 @@ function sendFeedback()
     console.log(waiver);
     $.post( "phpscripts/postdata.php?type=feedback", { name: name, phone: phone, feedback, feedback, waiver: waiver })
     .done(function( data ) {
-        if(data.includes('true')){
-            alert("Feedback erfolgreich gesendet, danke!");
-            window.open('index.html', '_self');
-        }
-        else
-        {
-            alert("Angaben nicht korrekt!");
-        }
+        alert("Feedback gesendet!");
     });
 
 
