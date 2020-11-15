@@ -172,6 +172,8 @@ function sendFeedback()
     $.post( "phpscripts/postdata.php?type=feedback", { name: name, phone: phone, feedback, feedback, waiver: waiver })
     .done(function( data ) {
         alert("Feedback gesendet!");
+        window.open('index.html', '_self');
+
     });
 
 
