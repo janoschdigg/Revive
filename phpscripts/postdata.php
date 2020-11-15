@@ -35,14 +35,40 @@ if(isset($_GET['id']))
     
     }
     else
-        {
-            echo "false";
-        }
+    {
+        echo "false";
+    }
+}
+else if(isset($_POST['feedback']))
+{
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $feedback = $_POST['feedback'];
+    $waiver = $_POST['waiver'];
+
+    $body = "
+    <h2>Neuer Feedback eintrag</h2>
+    <div>
+        <p><b>Name: </b>$name</p>
+        <p><b>Nummer: </b>$phone</p>
+        <p><b>Feedback: </b>$feedback</p>
+        <p><b>Will kontaktiert werden: </b>$waiver</p>
+    </div>
+";
+
+$betreff = "Neues Feedback von Revive";
+$header  = "MIME-Version: 1.0\r\n";
+$header .= "Content-type: text/html; charset=utf-8\r\n";
+$header .= "From: feedback@revive.ch\r\n";
+$header .= "X-Mailer: PHP ". phpversion();
+
+mail("janosch.diggelmann@gmail.com",$betreff,$body,$header);
+echo true;
 }
 else
-        {
-            echo "false";
-        }
+{
+    echo "false";
+}
 
 
 

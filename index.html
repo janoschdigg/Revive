@@ -96,7 +96,13 @@
     <ons-page id="page1">
       <ons-toolbar>
        <div class="center">
-        Angebote</div>
+        Angebote
+      </div>
+      <div class="right" style="color: grey; margin-right: 15px;" onclick="feedback()">
+        Feedback 
+        <ons-icon style="font-size: 24px; margin-left: 5px; padding-top: -15px; " icon="ion-ios-chatbubbles"></ons-icon>
+
+      </div>
       </ons-toolbar>
       <ons-tabbar id="tabbar">
         <ons-tab page="tab1.html" icon="ion-ios-calendar" label="Angebote"></ons-tab>
@@ -161,7 +167,7 @@
         </ons-list-item>
         </ons-list>
         <div class="version">
-          Version 1.0.15
+          Version 1.0.16
         </div>
 
       </div>
@@ -184,6 +190,48 @@
     </ons-page>
   </template>
 
+  <template id="feedback.html">
+    <ons-page id="details">
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Home</ons-back-button>
+        </div>
+        <div class="center">Feedback</div>
+      </ons-toolbar>
+      <ons-card>
+        <div class="title">
+          Feedback erfassen
+        </div>
+        <ons-list class="content">
+          <ons-list-item class="input-items">
+          <label class="center">
+            <ons-input id="name_feedback" float maxlength="20" placeholder="Name / Vorname"></ons-input>
+          </label>
+          </ons-list-item>
+          <ons-list-item class="input-items">
+              <label class="center">
+              <ons-input id="phone_feedback" float maxlength="20" placeholder="Telefonnummer"></ons-input>
+              </label>
+          </ons-list-item>
+          <ons-list-item class="input-items">
+              <textarea class="textarea textarea--transparent" id="feedback" rows="4" placeholder="Feedback" style="width: 100%;"></textarea>            
+          </ons-list-item>
+          <ons-list-item tappable>
+            <label class="left">
+              <ons-checkbox input-id="waiverinput" id="waiver"></ons-checkbox>
+            </label>
+            <label for="waiverinput" class="center">
+              Ich darf bei Unklarheiten kontaktiert werden
+            </label>
+          </ons-list-item>
+          <br><br>
+          <div class="btn" onclick="sendFeedback()">Feedback schicken</div>
+  
+      </ons-list>
+      </ons-card>
+    </ons-page>
+  </template>
+
 </body>
 
 </html>
@@ -196,6 +244,11 @@
   function detail(id) {
     getDetailData(id);
     document.querySelector('#myNavigator').pushPage('details.html', { data: { title: 'Detailansicht' } });
+
+  }
+
+  function feedback() {
+    document.querySelector('#myNavigator').pushPage('feedback.html', { data: { title: 'Feedback' } });
 
   }
 

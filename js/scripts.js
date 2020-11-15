@@ -157,6 +157,33 @@ $(document).ready(function (event) {
     });
 });
 
+function sendFeedback()
+{
+    name = document.getElementById('name_feedback').value;
+    phone = document.getElementById('phone_feedback').value;
+    feedback = document.getElementById('feedback').value;
+    waiver = document.getElementById('waiver').checked;
+
+
+    console.log(name);
+    console.log(phone);
+    console.log(feedback);
+    console.log(waiver);
+    $.post( "phpscripts/postdata.php?type=feedback", { name: name, phone: phone, feedback, feedback, waiver: waiver })
+    .done(function( data ) {
+        if(data.includes('true')){
+            alert("Feedback erfolgreich gesendet, danke!");
+            window.open('index.html', '_self');
+        }
+        else
+        {
+            alert("Angaben nicht korrekt!");
+        }
+    });
+
+
+}
+
 function sendRegister(id)
 {
     name = document.getElementById('name').value;
