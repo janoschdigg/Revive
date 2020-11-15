@@ -86,7 +86,10 @@ else
            
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Beschreibung</label>
-                <textarea  name="body" required class="form-control" rows="4"><?php if(isset($upd)){echo $body;} ?></textarea>
+                <textarea rows = "5" name="body" id="editor">
+                    <?php if(isset($upd)){echo $body;} ?>        
+                </textarea>
+                <!-- <textarea  name="body" required class="form-control" rows="4"><?php if(isset($upd)){echo $body;} ?></textarea> -->
             </div>
             <input style="display: none;"  name="id" type="number" <?php if(isset($upd)){echo "value='$upd'";} ?> class="form-control" >
             <div class="form-group">
@@ -114,4 +117,14 @@ else
 			autoclose: true,
 		})
 	})
+</script>
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        removePlugins: [ 'Heading', 'Link' ],
+        toolbar: [ 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' ]
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
 </script>
