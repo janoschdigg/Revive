@@ -269,9 +269,8 @@ div.calendarDate span {
     margin-left: -1.064453125em;
   }
 
-
   .hidden{
-    display: none;
+    display: none !important;
   }
 
   .selectors{

@@ -15,6 +15,16 @@ $(document).ready(function (event) {
     reloadactivities();
    
 });
+
+function loadCategories()
+{
+    $.post("phpscripts/getdata.php?type=category", function (data) {
+
+        var obj = JSON.parse(data);
+        categories = obj;
+        });
+}
+
 function reloadactivities()
 {
     $.post("phpscripts/getdata.php?type=activity", function (data) {
@@ -26,32 +36,84 @@ function reloadactivities()
         });
 }
 
+function getCategory(categories, id)
+{
+    categories.forEach(element =>{
+        if(element.id == id)
+        {
+            
+            catInfo = element;
+        }
+    });
+}
+
+function printCatInfo(){
+    document.getElementById("category_info").classList.remove("hidden")
+    document.getElementById("info_title").innerHTML = "<b>"+catInfo.name+":</b>";
+    document.getElementById("info_text").innerHTML = catInfo.info;
+}
+var categories = null;
+var catInfo = null;
+var backgroundclass = '';
 
 function printActivities(category)
 {
-  
+    loadCategories();
+    
+    if(category == 0)
+    {
+        document.getElementById("category_info").classList.add("hidden");
+    }
+
+    if(category == 1)
+    {
+        getCategory(categories, 1);
+        printCatInfo();
+    }
+    else if(category == 2)
+    {
+        getCategory(categories, 2);
+        printCatInfo();
+    }
+    else if(category == 3)
+    {
+        getCategory(categories, 3);
+        printCatInfo();
+    }
+    else if(category == 4)
+    {
+        getCategory(categories, 4);
+        printCatInfo();
+    }
+
     var container = document.getElementById("acitivities");
 
     container.innerHTML = "";
-
+    
     activitylist.forEach(element => {
         var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
         var date = new Date(element.date);
         var dayName = days[date.getDay()];
-        var backgroundclass = '';
+
+        
+
         if(element.fcategoryID == 1)
         {
             backgroundclass = 'red';
         }
+
         else if(element.fcategoryID == 2){
             backgroundclass = 'yellow';
         }
+
         else if(element.fcategoryID == 3){
             backgroundclass = 'blue';
         }
+
         else if(element.fcategoryID == 4){
             backgroundclass = 'green';
         }
+
         if(element.fcategoryID == category || category == 0)
         {
             container.innerHTML += `
@@ -114,7 +176,6 @@ function sendRegister(id)
 }
 
 function register(id, name) {
-    console.log("Register" + id);
     var container = document.getElementById("detailsContainer");
     container.innerHTML = `
     <ons-card>

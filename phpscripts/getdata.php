@@ -21,6 +21,11 @@ if($type == 'church')
 	$result = $con->sqlexec("Select * from revive.church");
    echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 }
+if($type == 'category')
+{
+	$result = $con->sqlexec("Select * from revive.categories");
+   echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
+}
 if($type == 'detail' && isset($_GET['id']))
 {
 	$result = $con->sqlexec("Select act.id, title, date, body, time, location, participants, booked, act.fchurchId, fuserid, fcategoryID, act.deleted, ch.name, fAdminId, logo, user.name as username, user.mail from revive.activity as act INNER Join revive.church as ch ON act.fchurchID = ch.id INNER JOIN user ON act.fuserid = user.id where act.id =" . $id);
