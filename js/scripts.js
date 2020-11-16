@@ -248,9 +248,12 @@ function getCookie(cname) {
 
 function logout()
 {
-    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.open('index.html', '_self');
+    if (confirm('Willst dich wirklich ausloggen?')) {
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.open('index.html', '_self');      
+    } 
+   
 
 }
 
@@ -279,8 +282,16 @@ function login()
 {
     var userid = getCookie("userid");
     if (userid != "") {
+        var elements = document.querySelectorAll('.toolbar');
+        for(var i=0; i<elements.length; i++){
+            elements[i].style.background = "white";
+        }
         logout();
     } else {
+        var elements = document.querySelectorAll('.toolbar');
+        for(var i=0; i<elements.length; i++){
+            elements[i].style.background = "red !important";
+        }
         createAlertDialog();
     }
 

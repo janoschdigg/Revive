@@ -94,14 +94,16 @@
 
   <template id="home.html">
     <ons-page id="page1">
-      <ons-toolbar>
+      <ons-toolbar>      
+        <div class="left" style="color: grey; margin-left: 15px;" onclick="feedback()"> 
+        <ons-icon style="font-size: 24px; margin-left: 5px; padding-top: -15px; " icon="ion-ios-chatbubbles"></ons-icon>
+      </div>
        <div class="center">
         Angebote
       </div>
-      <div class="right" style="color: grey; margin-right: 15px;" onclick="feedback()">
-        Feedback 
-        <ons-icon style="font-size: 24px; margin-left: 5px; padding-top: -15px; " icon="ion-ios-chatbubbles"></ons-icon>
 
+      <div class="right">    
+        <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()"></ons-icon>
       </div>
       </ons-toolbar>
       <ons-tabbar id="tabbar">
@@ -184,6 +186,7 @@
         </div>
         <div class="center">Details</div>
         <div class="right"  id="loginBereich">
+          <span class="logout">Logout </span>
           <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()"></ons-icon>
         </div>
       </ons-toolbar>

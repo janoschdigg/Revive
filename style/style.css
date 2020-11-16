@@ -273,6 +273,11 @@ div.calendarDate span {
     display: none !important;
   }
 
+
+  .logout{
+    display: none;
+  }
+
   .selectors{
     margin-top: 10px;
     width: 98%;
