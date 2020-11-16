@@ -20,7 +20,7 @@ function sendFeedback()
     console.log(waiver);
     $.post( "phpscripts/postdata.php?type=feedback", { name: name, phone: phone, feedback, feedback, waiver: waiver })
     .done(function( data ) {
-        ons.notification.alert('Feedback gesendet');
+        alert('Feedback gesendet');
         window.open('index.html', '_self');
 
     });
@@ -36,12 +36,12 @@ function sendRegister(id)
         $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
     
             if(data.includes('true')){
-                ons.notification.alert('Du hast dich erfolgreich angemeldet');
+                alert('Du hast dich erfolgreich angemeldet');
                 window.open('index.html', '_self');
             }
             else
             {
-                ons.notification.alert('Bitte alles ausfüllen!');            
+                alert('Bitte alles ausfüllen!');            
             }
         });
     }
@@ -63,7 +63,7 @@ function register(id, name) {
         </ons-list-item>
         <ons-list-item class="input-items">
             <label class="center">
-            <ons-input id="phone" type="number" float maxlength="20" placeholder="Telefonnummer"></ons-input>
+            <ons-input id="phone" type="tel" float maxlength="20" placeholder="Telefonnummer"></ons-input>
             </label>
         </ons-list-item>
         <div class="btn" onclick="sendRegister(`+ id +`)">Anmelden</div>
@@ -116,7 +116,7 @@ function sendlogin(){
             setCookie("username", user[0].username, 360);
             setCookie("name", user[0].name, 360);
 
-            ons.notification.alert("Login erfolgreich!");
+            alert("Login erfolgreich!");
             hideAlertDialog();
 
         }
