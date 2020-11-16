@@ -73,7 +73,7 @@ function getDetailData(id) {
             $.post("phpscripts/getdata.php?type=registration&id=" + element.id, function (data) {
                 var html = ``;
                 html += `
-                <ons-card>
+                <ons-card style="margin-bottom: 50px">
                     <ons-list>
                         <ons-list-header>Anmeldungen</ons-list-header>
                 `;    

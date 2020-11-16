@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
+    <!-- 
+                                                                          
 
+    ██████  ███████ ██    ██ ██ ██    ██ ███████ 
+    ██   ██ ██      ██    ██ ██ ██    ██ ██      
+    ██████  █████   ██    ██ ██ ██    ██ █████   
+    ██   ██ ██       ██  ██  ██  ██  ██  ██      
+    ██   ██ ███████   ████   ██   ████   ███████ 
+                                                 
+                                                
+
+   -->
 <head>
-  <!-- TEst -->
+  <!-- Metadaten -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
+
+  <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
 
+  <!-- Icons for Homescreen -->
   <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="apple-touch-icon" sizes="152x152" href="images/icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
   <link rel="apple-touch-icon" sizes="167x167" href="images/icon.png">
 
+  <!-- Startup Image for all Apple Devices  -->
   <link rel="apple-touch-startup-image" href="images/icon.png"
     media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/icon.png"
@@ -31,10 +46,13 @@
     media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
+  <!-- My Styling -->
   <link rel="stylesheet" href="style/style.css">
+  <!-- Onsen Framework -->
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <!-- IOS Style on all devices -->
   <script>ons.disableAutoStyling()</script>
 
   <!-- My Scripts -->
@@ -42,8 +60,6 @@
   <script src="js/loadActivity.js"></script>
   <script src="js/loadChurch.js"></script>
   <script src="js/loadDetails.js"></script>
-
-
 
 </head>
 
@@ -212,6 +228,23 @@
     </ons-alert-dialog>
   </template>
 
+  <!-- Custom Alert Pop Up -->
+  <template id="custom-dialog.html">
+    <ons-alert-dialog id="custom-dialog" modifier="rowfooter">
+      <div class="alert-dialog-title" id="custom-title"><!-- Wird geladen --></div>
+      <div class="alert-dialog-content" id="custom-content">
+        
+      </div>
+      <div class="alert-dialog-footer" id="custom-buttons">
+
+        <!-- Buttons laden -->
+
+        <!-- <ons-alert-dialog-button onclick="hideAlertDialog()">Abbrechen</ons-alert-dialog-button>
+        <ons-alert-dialog-button onclick="">Login</ons-alert-dialog-button> -->
+      </div>
+    </ons-alert-dialog>
+  </template>
+
   <!-- Feedback Page -->
   <template id="feedback.html">
     <ons-page id="details">
@@ -254,9 +287,8 @@
       </ons-card>
     </ons-page>
   </template>
-
 </body>
-
+                                                                                                                                              
 </html>
 <script>
   document.addEventListener('prechange', function (event) {
@@ -295,6 +327,13 @@
   var hideAlertDialog = function () {
     document
       .getElementById('my-alert-dialog')
+      .hide();
+  };
+
+  // Hides Custom Dialog
+  var hideCustomDialog = function () {
+    document
+      .getElementById('custom-dialog')
       .hide();
   };
 

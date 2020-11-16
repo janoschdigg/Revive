@@ -20,10 +20,46 @@ function sendFeedback()
     console.log(waiver);
     $.post( "phpscripts/postdata.php?type=feedback", { name: name, phone: phone, feedback, feedback, waiver: waiver })
     .done(function( data ) {
+        // myAlert("Feedback", "Dein Feedback wurde gesendet, danke.", "ok", "");
         alert('Feedback gesendet');
         window.open('index.html', '_self');
 
     });
+
+}
+
+function myAlert(title, text, action, actiontext)
+{
+    var dialog = document.getElementById('custom-dialog');
+
+    if (dialog) {
+      dialog.show();
+    } else {
+      ons.createElement('custom-dialog.html', { append: true })
+        .then(function (dialog) {
+          dialog.show();
+        });
+    }
+
+    document.getElementById('custom-title').innerHTML = "<p>"+title+"</p>";
+    document.getElementById('custom-content').innerHTML = "<p>"+text+"</p>";
+
+    if(action == "ok")
+    {
+    document.getElementById('custom-buttons').innerHTML = `
+    <ons-alert-dialog-button onclick="hideCustomDialog()">OK</ons-alert-dialog-button>
+    `;
+    }
+    else{
+        document.getElementById('custom-buttons').innerHTML = `
+        <ons-alert-dialog-button onclick="hideCustomDialog()">Abbrechen</ons-alert-dialog-button>
+        <ons-alert-dialog-button onclick="`+action+`">`+actiontext+`</ons-alert-dialog-button>
+        `;
+    }
+
+    
+
+   
 
 }
 
@@ -32,7 +68,7 @@ function sendRegister(id)
     name = document.getElementById('name').value;
     phone = document.getElementById('phone').value;
 
-    if (confirm('Sind deine Daten korrekt: \\n'+name+'\\n'+phone)) {
+    if (true) {
         $.post("phpscripts/postdata.php?type=registration&id="+id+"&name="+name+"&phone="+phone, function (data) {
     
             if(data.includes('true')){
