@@ -29,6 +29,7 @@
     media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/icon.png"
     media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 
   <link rel="stylesheet" href="style/style.css">
@@ -36,8 +37,9 @@
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <script>ons.disableAutoStyling()</script>
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <script src="js/scripts.js"></script>
+
+
 </head>
 
 <script>
@@ -82,7 +84,13 @@
   </script>
 
 <body>
-
+  <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script><script>
+    function conf()
+    {
+      confetti.start(2000);
+    }
+    
+  </script>
   <!-- Loading Animation -->
   <div class="center" id="loading">
     <img src="images/bird.png">
@@ -158,7 +166,7 @@
         <ons-list>
           <ons-list-item></ons-list-item>
           <ons-list-header>©</ons-list-header>
-          <ons-list-item>
+          <ons-list-item onclick="conf();">
             
             <div class="left">
             <img class="list-item__thumbnail" src="images/churches/jd.png">
@@ -266,7 +274,7 @@
       .innerHTML = event.tabItem.getAttribute('label');
   });
 
-  
+
 
   function detail(id) {
     getDetailData(id);
