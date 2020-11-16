@@ -7,6 +7,10 @@ $(document).ready(function (event) {
 });
 
 
+
+
+
+
 var activitylist = null;
 var churchlist = null;
 
@@ -220,9 +224,72 @@ function register(id, name) {
     </ons-card>
     `;
 }
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
+function logout()
+{
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.open('index.html', '_self');
+
+}
+
+function sendlogin(){
+    username = document.getElementById('admin-user').value;
+    password = document.getElementById('admin-pw').value;
+
+    $.post( "phpscripts/postdata.php?type=login", { username: username, password: password })
+    .done(function( data ) {
+        var user = JSON.parse(data);
+        if(typeof user[0].id !== 'undefined')
+        {
+            setCookie("userid", user[0].id, 30);
+            setCookie("username", user[0].username, 30);
+            setCookie("name", user[0].name, 30);
+
+            alert("Login erfolgreich!");
+            hideAlertDialog();
+
+        }
+       
+    });
+}
+
+function login()
+{
+    var userid = getCookie("userid");
+    if (userid != "") {
+        logout();
+    } else {
+        createAlertDialog();
+    }
+
+}
 //Load Detail Data from Activity
 function getDetailData(id) {
+    
+
+
     $.post("phpscripts/getdata.php?type=detail&id=" + id, function (data) {
 
         var container = document.getElementById("detailsContainer");
@@ -237,10 +304,7 @@ function getDetailData(id) {
 
             var progressvalue = (element.booked / element.participants) * 100;
        
-            var user = $.post("phpscripts/getdata.php?type=user&id=" + element.fuserid, function (dataUser) {
-                return JSON.parse(data);
-            }, 'json');
-
+            
             button ="";
             if(progressvalue < 100)
             {
@@ -248,6 +312,7 @@ function getDetailData(id) {
             }
             progressvalue = Math.round(progressvalue, 1);
             container.innerHTML += `<ons-card>
+            <div class="hidden" id="datailID">`+ element.id + `</div>
 
             <div class="title"><b>`+ element.title + `</b></div>
             <div class="title" style="font-size: 18px; margin-bottom: 5px;"><ons-icon icon="ion-ios-calendar">  ` + dayName + " " + date.getDate()+". " + date.toLocaleString('de-ch', { month: 'long' })+ `</div>
@@ -292,11 +357,46 @@ function getDetailData(id) {
 
           </ons-card>
           `;
+
+          if(element.fuserid == getCookie("userid"))
+          {
+            $.post("phpscripts/getdata.php?type=registration&id=" + element.id, function (data) {
+                var html = ``;
+                html += `
+                <ons-card>
+                    <ons-list>
+                        <ons-list-header>Anmeldungen</ons-list-header>
+                `;    
+
+                var anmeldungen = JSON.parse(data);
+                var anmeldeCounter = 1;
+                anmeldungen.forEach(el => {
+                    html += `
+                    <ons-list-item>
+                        <div class='left'>`+anmeldeCounter+`</div>
+                        <div class='center'>`+el.name+`</div>
+                        <div class='right'>`+el.phone+`</div>
+                    </ons-list-item>
+                    `;
+                    anmeldeCounter++;
+                });
+
+                html += `
+                </ons-list>
+            </ons-card>
+            `;
+
+            container.innerHTML += html;
+            });
+          }
           
 
         });
 
     });
+
+   
+
 };
 
 

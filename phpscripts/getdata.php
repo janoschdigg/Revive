@@ -37,6 +37,12 @@ if($type == 'user' && isset($_GET['id']))
    echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 }
 
+if($type == 'registration' && isset($_GET['id']))
+{
+	$result = $con->sqlexec("Select * from revive.registration where deleted = 0 AND factivityID =" . $id);
+   echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
+}
+
 ?>
 
 

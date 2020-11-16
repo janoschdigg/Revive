@@ -64,6 +64,13 @@ $header .= "X-Mailer: PHP ". phpversion();
 mail("janosch.diggelmann@gmail.com",$betreff,$body,$header);
 echo true;
 }
+else if(isset($_POST['username']) && $type === "login")
+{
+    $user = $_POST['username'];
+    $pw = $_POST['password'];
+    $result = $con->sqlexec("Select * from revive.user where username = '" . $user . "' AND password='". $pw ."'");
+    echo json_encode($result , JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
+}
 else
 {
     echo "false";

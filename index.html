@@ -107,7 +107,7 @@
       <ons-tabbar id="tabbar">
         <ons-tab page="tab1.html" icon="ion-ios-calendar" label="Angebote"></ons-tab>
         <ons-tab page="churches.html" icon="ion-ios-home" label="Kirchen"></ons-tab>
-
+        
       </ons-tabbar>
     </ons-page>
 
@@ -167,7 +167,7 @@
         </ons-list-item>
         </ons-list>
         <div class="version">
-          Version 1.0.16
+          Version 1.1.0
         </div>
 
       </div>
@@ -183,11 +183,34 @@
           <ons-back-button>Home</ons-back-button>
         </div>
         <div class="center">Details</div>
+        <div class="right"  id="loginBereich">
+          <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()"></ons-icon>
+        </div>
       </ons-toolbar>
       <div id="detailsContainer">
 
       </div>
     </ons-page>
+  </template>
+
+ 
+
+  <template id="admin-dialog.html">
+    <ons-alert-dialog id="my-alert-dialog" modifier="rowfooter">
+      <div class="alert-dialog-title">Admin Anmeldung</div>
+      <div class="alert-dialog-content">
+        <p>
+          <ons-input id="admin-user" modifier="underbar" placeholder="Benutzer" float></ons-input>
+        </p>
+        <p>
+          <ons-input id="admin-pw" modifier="underbar" type="password" placeholder="Passwort" float></ons-input>
+        </p>
+      </div>
+      <div class="alert-dialog-footer">
+        <ons-alert-dialog-button onclick="hideAlertDialog()">Abbrechen</ons-alert-dialog-button>
+        <ons-alert-dialog-button onclick="sendlogin()">Login</ons-alert-dialog-button>
+      </div>
+    </ons-alert-dialog>
   </template>
 
   <template id="feedback.html">
@@ -241,10 +264,12 @@
       .innerHTML = event.tabItem.getAttribute('label');
   });
 
+  
+
   function detail(id) {
     getDetailData(id);
     document.querySelector('#myNavigator').pushPage('details.html', { data: { title: 'Detailansicht' } });
-
+    
   }
 
   function feedback() {
@@ -252,7 +277,25 @@
 
   }
 
+  var createAlertDialog = function() {
+  var dialog = document.getElementById('my-alert-dialog');
 
+  if (dialog) {
+    dialog.show();
+  } else {
+    ons.createElement('admin-dialog.html', { append: true })
+      .then(function(dialog) {
+        dialog.show();
+      });
+  }
+};
+
+
+var hideAlertDialog = function() {
+  document
+    .getElementById('my-alert-dialog')
+    .hide();
+};
 
 
 </script>
