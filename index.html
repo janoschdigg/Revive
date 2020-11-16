@@ -29,67 +29,59 @@
     media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/icon.png"
     media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <script>ons.disableAutoStyling()</script>
+
+  <!-- My Scripts -->
   <script src="js/scripts.js"></script>
+  <script src="js/loadActivity.js"></script>
+  <script src="js/loadChurch.js"></script>
+  <script src="js/loadDetails.js"></script>
+
 
 
 </head>
 
 <script>
   checktab();
-  
-  function showinfos()
-  {
-    showonline();
-    changetab();
-  }
-  
-  function showonline(){
+
+  function showonline() {
     document.getElementById("banner").style.display = "none";
   }
-  
-  function checktab()
-  {
-    if(ons.platform.isAndroid())
-    {
+
+  function checktab() {
+    if (ons.platform.isAndroid()) {
       var icon = "<img id='shareicon'  src='images/sharegoogle.png'> oder <img id='shareicon'  src='images/sharegoogle2.png'>";
-      var text ="zum Startbildschirm hinzufügen";
+      var text = "zum Startbildschirm hinzufügen";
     }
-    else
-    {
+    else {
       var icon = "<img id='shareicon'  src='images/share.png'>";
-      var text ="zum Home-Bildschirm";
+      var text = "zum Home-Bildschirm";
     }
-    
-      if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) 
-      {
 
-      }
-      else{
-      document.write("<div class='homescreen_banner' id = 'banner'><h1>Herzlich wilkommen</h1>  <h2>bei Revive</h2>  <img src='images/bird.png' id='logo_banner' alt='Logo' > <ons-button modifier='large--quiet' onclick='showonline()'>Online anzeigen</ons-button>  <p>    Du kannst die App herunterladen in dem du folgendes Symbol auswählst "+ icon +" und dann auf \""+ text +"\" klickst.  </p></div>");
-
-      }
-       
-    
+    if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) {
+        //Do nothing
+    }
+    else {
+      document.write("<div class='homescreen_banner' id = 'banner'><h1>Herzlich wilkommen</h1>  <h2>bei Revive</h2>  <img src='images/bird.png' id='logo_banner' alt='Logo' > <ons-button modifier='large--quiet' onclick='showonline()'>Online anzeigen</ons-button>  <p>    Du kannst die App herunterladen in dem du folgendes Symbol auswählst " + icon + " und dann auf \"" + text + "\" klickst.  </p></div>");
+    }
   }
-  
-    
-  </script>
+
+
+</script>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script><script>
-    function conf()
-    {
+  <!-- EASTER EGG ;) -->
+  <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+  <script>
+    function conf() {
       confetti.start(2000);
     }
-    
   </script>
   <!-- Loading Animation -->
   <div class="center" id="loading">
@@ -97,32 +89,33 @@
     <div class="loader center"></div>
   </div>
 
-
   <ons-navigator swipeable id="myNavigator" page="home.html"></ons-navigator>
 
+  <!-- Base Page -->
   <template id="home.html">
     <ons-page id="page1">
-      <ons-toolbar>      
-        <div class="left" style="color: grey; margin-left: 15px;" onclick="feedback()"> 
-        <ons-icon style="font-size: 24px; margin-left: 5px; padding-top: -15px; " icon="ion-ios-chatbubbles"></ons-icon>
-      </div>
-       <div class="center">
-        Angebote
-      </div>
+      <ons-toolbar>
+        <div class="left" style="color: grey; margin-left: 15px;" onclick="feedback()">
+          <ons-icon style="font-size: 24px; margin-left: 5px; padding-top: -15px; " icon="ion-ios-chatbubbles">
+          </ons-icon>
+        </div>
+        <div class="center">
+          Angebote
+        </div>
 
-      <div class="right">    
-        <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()"></ons-icon>
-      </div>
+        <div class="right">
+          <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()">
+          </ons-icon>
+        </div>
       </ons-toolbar>
       <ons-tabbar id="tabbar">
         <ons-tab page="tab1.html" icon="ion-ios-calendar" label="Angebote"></ons-tab>
         <ons-tab page="churches.html" icon="ion-ios-home" label="Kirchen"></ons-tab>
-        
       </ons-tabbar>
     </ons-page>
-
-
   </template>
+
+  <!-- Mainpage (Aktivitäten) -->
   <template id="tab1.html">
     <ons-page id="Tab1">
       <ons-card id="allActivities" onclick="reloadactivities()" style="text-align: center;">
@@ -144,48 +137,44 @@
         </div>
       </div>
       <ons-card class="hidden" id="category_info">
-        <div class="content" >
+        <div class="content">
           <div class="info_title" id="info_title"></div>
           <div class="info_text" id="info_text">
-            
           </div>
         </div>
       </ons-card>
       <div id="acitivities">
-
+          <!-- Wird geladen -->
       </div>
     </ons-page>
   </template>
   <template id="churches.html">
     <ons-page id="Tab2">
-
-      <div >
-        <ons-list  id="churches">
-
+      <div>
+        <ons-list id="churches">
+          <!-- Wird geladen -->
         </ons-list>
         <ons-list>
           <ons-list-item></ons-list-item>
           <ons-list-header>©</ons-list-header>
           <ons-list-item onclick="conf();">
-            
             <div class="left">
-            <img class="list-item__thumbnail" src="images/churches/jd.png">
+              <img class="list-item__thumbnail" src="images/churches/jd.png">
             </div>
             <div class="center">
-            <span class="list-item__title">Entwickelt durch</span><span class="list-item__subtitle">Janosch Diggelmann</span>
+              <span class="list-item__title">Entwickelt durch</span><span class="list-item__subtitle">Janosch
+                Diggelmann</span>
             </div>
-        </ons-list-item>
+          </ons-list-item>
         </ons-list>
         <div class="version">
           Version 1.1.2
         </div>
-
       </div>
-
     </ons-page>
   </template>
- 
 
+  <!-- Details Page -->
   <template id="details.html">
     <ons-page id="details">
       <ons-toolbar>
@@ -193,18 +182,18 @@
           <ons-back-button>Home</ons-back-button>
         </div>
         <div class="center">Details</div>
-        <div class="right"  id="loginBereich">
-          <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()"></ons-icon>
+        <div class="right" id="loginBereich">
+          <ons-icon style="font-size: 24px; margin-right: 15px; color: gray;" icon="ion-ios-log-in" onclick="login()">
+          </ons-icon>
         </div>
       </ons-toolbar>
       <div id="detailsContainer">
-
+        <!-- Wird geladen -->
       </div>
     </ons-page>
   </template>
 
- 
-
+  <!-- Admin Anmeldungs Pop Up -->
   <template id="admin-dialog.html">
     <ons-alert-dialog id="my-alert-dialog" modifier="rowfooter">
       <div class="alert-dialog-title">Admin Anmeldung</div>
@@ -223,6 +212,7 @@
     </ons-alert-dialog>
   </template>
 
+  <!-- Feedback Page -->
   <template id="feedback.html">
     <ons-page id="details">
       <ons-toolbar>
@@ -237,17 +227,18 @@
         </div>
         <ons-list class="content">
           <ons-list-item class="input-items">
-          <label class="center">
-            <ons-input id="name_feedback" float maxlength="20" placeholder="Name / Vorname"></ons-input>
-          </label>
+            <label class="center">
+              <ons-input id="name_feedback" float maxlength="20" placeholder="Name / Vorname"></ons-input>
+            </label>
           </ons-list-item>
           <ons-list-item class="input-items">
-              <label class="center">
+            <label class="center">
               <ons-input id="phone_feedback" float maxlength="20" placeholder="Telefonnummer"></ons-input>
-              </label>
+            </label>
           </ons-list-item>
           <ons-list-item class="input-items">
-              <textarea class="textarea textarea--transparent" id="feedback" rows="4" placeholder="Feedback" style="width: 100%;"></textarea>            
+            <textarea class="textarea textarea--transparent" id="feedback" rows="4" placeholder="Feedback"
+              style="width: 100%;"></textarea>
           </ons-list-item>
           <ons-list-item tappable>
             <label class="left">
@@ -259,8 +250,7 @@
           </ons-list-item>
           <br><br>
           <div class="btn" onclick="sendFeedback()">Feedback schicken</div>
-  
-      </ons-list>
+        </ons-list>
       </ons-card>
     </ons-page>
   </template>
@@ -274,38 +264,38 @@
       .innerHTML = event.tabItem.getAttribute('label');
   });
 
-
-
+  // Opens Detail page and loads Data
   function detail(id) {
     getDetailData(id);
     document.querySelector('#myNavigator').pushPage('details.html', { data: { title: 'Detailansicht' } });
-    
+
   }
 
+  // Pushes Feedback Page
   function feedback() {
     document.querySelector('#myNavigator').pushPage('feedback.html', { data: { title: 'Feedback' } });
 
   }
 
-  var createAlertDialog = function() {
-  var dialog = document.getElementById('my-alert-dialog');
+  // Generates a Alert Dialog from admin-dialog template
+  var createAlertDialog = function () {
+    var dialog = document.getElementById('my-alert-dialog');
 
-  if (dialog) {
-    dialog.show();
-  } else {
-    ons.createElement('admin-dialog.html', { append: true })
-      .then(function(dialog) {
-        dialog.show();
-      });
-  }
-};
+    if (dialog) {
+      dialog.show();
+    } else {
+      ons.createElement('admin-dialog.html', { append: true })
+        .then(function (dialog) {
+          dialog.show();
+        });
+    }
+  };
 
-
-var hideAlertDialog = function() {
-  document
-    .getElementById('my-alert-dialog')
-    .hide();
-};
-
+  // Hides Admin Dialog
+  var hideAlertDialog = function () {
+    document
+      .getElementById('my-alert-dialog')
+      .hide();
+  };
 
 </script>
