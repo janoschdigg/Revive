@@ -63,7 +63,7 @@ function register(id, name) {
         </ons-list-item>
         <ons-list-item class="input-items">
             <label class="center">
-            <ons-input id="phone" type="tel" float maxlength="20" placeholder="Telefonnummer"></ons-input>
+            <ons-input id="phone" type="tel" float maxlength="12" placeholder="Telefonnummer"></ons-input>
             </label>
         </ons-list-item>
         <div class="btn" onclick="sendRegister(`+ id +`)">Anmelden</div>
