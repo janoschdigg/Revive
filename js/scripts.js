@@ -266,9 +266,9 @@ function sendlogin(){
         var user = JSON.parse(data);
         if(typeof user[0].id !== 'undefined')
         {
-            setCookie("userid", user[0].id, 30);
-            setCookie("username", user[0].username, 30);
-            setCookie("name", user[0].name, 30);
+            setCookie("userid", user[0].id, 360);
+            setCookie("username", user[0].username, 360);
+            setCookie("name", user[0].name, 360);
 
             alert("Login erfolgreich!");
             hideAlertDialog();
