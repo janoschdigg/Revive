@@ -298,9 +298,6 @@ function login()
 }
 //Load Detail Data from Activity
 function getDetailData(id) {
-    
-
-
     $.post("phpscripts/getdata.php?type=detail&id=" + id, function (data) {
 
         var container = document.getElementById("detailsContainer");
@@ -386,7 +383,7 @@ function getDetailData(id) {
                     <ons-list-item>
                         <div class='left'>`+anmeldeCounter+`</div>
                         <div class='center'>`+el.name+`</div>
-                        <div class='right'>`+el.phone+`</div>
+                        <div class='right'><a href="tel:`+el.phone+`">`+el.phone+`</a></div>
                     </ons-list-item>
                     `;
                     anmeldeCounter++;
