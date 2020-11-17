@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body{
+
+    display: flex;
+    justify-content: center;
+}
+
+.install img{
+ width: 20px;
+ margin-left: 5px;
+
+}
+
+.install p{
+    font-size: 20px;
+    text-align: left;
+}
+
+.cont{
+    font-family: 'Rubik', sans-serif;
+
+    z-index: 10;
+    width: 400px;
+    text-align: center;
+    margin-top: 200px;
+    background-color: rgba(255,255,255,0.9);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+h1{
+    font-size: 35px;
+}
+
+.card{
+    width: 800px;
+    height: 600px;
+    background-color: rgba(255,255,255,0.7);
+    z-index: 10;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+/* ---- reset ---- */
+body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+  }
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  } /* ---- particles.js container ---- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #d7d7d9;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  } /* ---- stats.js ---- */
+  .count-particles {
+      display: none;
+  }
+  .js-count-particles {
+    font-size: 1.1em;
+  }
+  #stats {
+    display: none !important;
+  }
+
+  body #particles-js canvas{
+      display: block !important;
+  }
+  
+  body div canvas{
+      display: none !important;
+}
+
+
+.flex {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+  
+  .app-btn {
+    width: 45%;
+    max-width: 160px;
+    color: #fff;
+    margin: 20px 10px;
+    text-align: left;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .app-btn.blu {
+    background-color: #101010;
+    -webkit-transition: background-color 0.25s linear;
+    transition: background-color 0.25s linear;
+  }
+  .app-btn.blu:hover {
+    background-color: #454545;
+  }
+  .app-btn i {
+    width: 20%;
+    text-align: center;
+    font-size: 28px;
+    margin-right: 7px;
+  }
+  .app-btn .big-txt {
+    font-size: 17px;
+    text-transform: capitalize;
+  }
+  

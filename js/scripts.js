@@ -1,3 +1,10 @@
+// Redirect on Desktop or Laptop
+
+if(window.innerWidth > 800)
+{
+    window.open("about", "_self");
+}
+
 // Load Animation
 $(document).ready(function (event) {
     $('#loading').show();

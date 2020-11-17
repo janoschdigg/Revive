@@ -5,8 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Revive</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Was ist Revive?</h1>
+    <!-- particles.js container --> <div id="particles-js"></div> <!-- stats - count particles --> <div class="count-particles"> <span class="js-count-particles">--</span> particles </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+    <!-- <div class="card">
+Hallo
+    </div> -->
+    <div class="cont" id="home">
+        <h1>Willkommen bei Revive</h1>
+        <div class="flex social-btns">
+            <a class="app-btn blu flex vert" onclick="load('apple')">
+            <i class="fab fa-apple"></i>
+            <p>Herunterladen auf <br/> <span class="big-txt">Apple</span></p>
+            </a>
+        
+            <a class="app-btn blu flex vert" onclick="load('android')">
+            <i class="fab fa-android"></i>
+            <p>Herunterladen <br/> <span class="big-txt">Android</span></p>
+            </a>
+        </div>
+    </div>
+
+    <div class="cont install hidden" id="apple">
+        <h1>Installieren auf Apple</h1>
+        <p>
+            1. Öffne diese Seite auf deinem Mobiltelefon<br>
+            2. Klicke auf folgendes Symbol <img id='shareicon' src='../images/share.png'><br>
+            3. Klicke auf zum Homebildschirm hinzufügen
+        </p>
+        <p onclick="home()"><-- Zurück</p>
+
+    </div>
+    <div class="cont install hidden" id="android">
+        <h1>Installieren auf Android</h1>
+       <p>
+        1. Öffne diese Seite auf deinem Mobiltelefon<br>
+        2. Klicke auf folgendes Symbol  <img id='shareicon'  src='../images/sharegoogle.png'> oder <img id='shareicon'  src='../images/sharegoogle2.png'><br>
+        3. Klicke auf zum Startbildschirm hinzufügen
+       
+       </p>
+
+       <p onclick="home()"><-- Zurück</p>
+    </div>
+   
+    <script>
+
+        function home()
+        {
+            document.getElementById("home").classList.remove("hidden");
+            document.getElementById("apple").classList.add("hidden");
+            document.getElementById("android").classList.add("hidden");
+
+        }
+
+        function load(kind)
+        {
+            if(kind == "apple")
+            {
+                document.getElementById("home").classList.add("hidden");
+            document.getElementById("apple").classList.remove("hidden");
+            document.getElementById("android").classList.add("hidden");
+            }
+            else
+            {
+                document.getElementById("home").classList.add("hidden");
+            document.getElementById("apple").classList.add("hidden");
+            document.getElementById("android").classList.remove("hidden");
+            }
+        }
+    </script>  
+      
+
 </body>
+<script>
+    particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 63,
+        density: { enable: true, value_area: 2405.118091298284 }
+      },
+      color: { value: "#ffffff" },
+      shape: {
+        type: "image",
+        stroke: { width: 0, color: "#000000" },
+        polygon: { nb_sides: 5 },
+        image: {
+          src: "https://revive.janoschdiggelmann.ch/images/bird.png",
+          width: 1,
+          height: 1
+        }
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+      },
+      size: {
+        value: 48.10236182596568,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 4.872463273808071,
+          size_min: 0.1,
+          sync: false
+        }
+      },
+      line_linked: {
+        enable: true,
+        distance: 192.40944730386272,
+        color: "#ffffff",
+        opacity: 0,
+        width: 10.101495983452793
+      },
+      move: {
+        enable: true,
+        speed: 0.1,
+        direction: "top-right",
+        random: true,
+        straight: false,
+        out_mode: "bounce",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 3607.6771369474263,
+          rotateY: 962.0472365193136
+        }
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "bubble" },
+        onclick: { enable: false, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 400, line_linked: { opacity: 1 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 }
+      }
+    },
+    retina_detect: true
+  });
+  var count_particles, stats, update;
+  stats = new Stats();
+  stats.setMode(0);
+  stats.domElement.style.position = "absolute";
+  stats.domElement.style.left = "0px";
+  stats.domElement.style.top = "0px";
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector(".js-count-particles");
+  update = function () {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+  
+</script>
 </html>
+
